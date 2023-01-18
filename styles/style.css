@@ -29,11 +29,10 @@ body {
 
 .profile {
   width: 60%;
-  margin: 40px 20px 40px 40px;
   background-color: #fff;
   opacity: 0.7;
   border-radius: 20px;
-  filter: drop-shadow(0 0 0.75rem #491db9);
+  filter: drop-shadow(0 0 0.75rem #170034);
 }
 
 .profile.dark-mode {
@@ -57,7 +56,7 @@ body {
 }
 
 .divider {
-  padding-top: 0.10rem;
+  padding-top: 0.75rem;
   border-color: #6d6d6d;
   border-bottom-style: solid;
   border-bottom-width: 2px;
@@ -67,7 +66,7 @@ body {
 
 .btn {
   background-color: #6d6d6d;
-  border-radius: 45px;
+  border-radius: 30px;
   border: none;
   padding: 15px 30px;
   margin: 20px 0;
@@ -98,12 +97,12 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  filter : drop-shadow(2px 2px 2px #ccc);
+
 }
 
 .social svg {
   color: #6d6d6d;
-  height: 3rem;
+  height: 4rem;
 }
 
 /* Photo styles */
@@ -128,7 +127,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 30px;
+  padding: 10px;
 }
 
 .js-change-theme button {
@@ -138,10 +137,19 @@ body {
 }
 
 /* Styles for small screens */
-@media (max-width: 959px) {
+@media (max-width: 1024px) {
   .container {
-    height: 200vh;
+      height: 160vh;
+      max-width: 90rem;
+      margin: 20px 20px 20px 20px;
+      display: flex;
+      align-items: center;
 }
+
+.social svg {
+  color: #6d6d6d;
+  height: 2rem;
+  }
 
   .full-avatar {
     display: none;
@@ -149,7 +157,7 @@ body {
 
   .profile {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #fff;
     opacity: 0.7;
     filter: drop-shadow(0 0 0.75rem #491db9);
@@ -163,9 +171,10 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 9999px;
-    margin-top: auto;
+    margin-top: -95px;
     margin-left: auto;
     margin-right: auto;
+    filter: drop-shadow(0 0 0.75rem #491db9);
 }
 
   .data {
