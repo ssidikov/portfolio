@@ -97,12 +97,14 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  
 
 }
 
 .social svg {
   color: #6d6d6d;
   height: 4rem;
+  
 }
 
 /* Photo styles */
