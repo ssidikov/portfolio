@@ -46,9 +46,12 @@ body {
 
 .profile svg {
   color: #491db9;
-  padding-right: 1rem;
   fill: currentColor;
   height: 1rem;
+}
+
+.profile svg:not(:last-child) {
+  padding-right: 1rem;
 }
 
 .profile .description {
@@ -69,7 +72,7 @@ body {
   border-radius: 30px;
   border: none;
   padding: 15px 30px;
-  margin: 20px 0;
+  margin: 20px 30px 20px auto;
   text-transform: uppercase;
   font-weight: 500;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -79,7 +82,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #2EE59D;
+  background-color: #2ee59d;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
@@ -97,14 +100,12 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  
-
 }
 
 .social svg {
   color: #6d6d6d;
   height: 4rem;
-  
+  /* justify-content: space-between; */
 }
 
 /* Photo styles */
@@ -139,23 +140,34 @@ body {
 }
 
 /* Styles for small screens */
-@media (max-width: 1024px) {
-  .container {
-      height: 160vh;
-      max-width: 90rem;
-      margin: 20px 20px 20px 20px;
-      display: flex;
-      align-items: center;
-}
+@media (max-width: 768px) {
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% auto;
+  }
 
-.social svg {
-  color: #6d6d6d;
-  height: 2rem;
+  .btn a {
+    align-items: center;
+  }
+
+  .container {
+    height: 160vh;
+    max-width: 90rem;
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .social svg {
+    color: #6d6d6d;
+    height: 3rem;
   }
 
   .full-avatar {
     display: none;
-}
+  }
 
   .profile {
     width: 100%;
@@ -163,9 +175,7 @@ body {
     background-color: #fff;
     opacity: 0.7;
     filter: drop-shadow(0 0 0.75rem #491db9);
-    
-
-}
+  }
 
   .small-avatar {
     display: block;
@@ -177,9 +187,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     filter: drop-shadow(0 0 0.75rem #491db9);
-}
+  }
 
   .data {
     text-align: center;
-        
+  }
 }
