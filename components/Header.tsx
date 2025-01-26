@@ -52,19 +52,19 @@ export default function Header() {
         } absolute top-16 left-0 w-full md:static md:flex md:w-auto  md:mt-0 pb-4 md:pb-0 mt-4 md:flex-row md:gap-6 md:items-center md:justify-center bg-background md:bg-transparent`}>
         <Link
           href='/#home'
-          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-blue-500'
+          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
           onClick={() => setMenuOpen(false)}>
           Home
         </Link>
         <Link
           href='/#portfolio'
-          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-blue-500'
+          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
           onClick={() => setMenuOpen(false)}>
           Portfolio
         </Link>
         <Link
           href='/#about'
-          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-blue-500'
+          className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
           onClick={() => setMenuOpen(false)}>
           About me
         </Link>
@@ -75,7 +75,7 @@ export default function Header() {
             href='/#contact'
             className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300 mt-4 md:mt-0'
             onClick={() => setMenuOpen(false)}>
-            <button className='w-full md:w-auto px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
+            <button className='w-full md:w-auto px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
               Contact Me
             </button>
           </Link>
@@ -85,7 +85,7 @@ export default function Header() {
       {/* Contact and dark theme on large screens */}
       <div className='hidden md:flex items-center gap-4'>
         <Link href='/#contact'>
-          <button className='px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
+          <button className='px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
             Contact Me
           </button>
         </Link>
