@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { Moon, Sun } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -48,7 +47,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Навигация для всех экранов */}
+      {/* Navigation for all screens */}
       <nav
         className={`${
           menuOpen ? 'block' : 'hidden'
@@ -72,7 +71,7 @@ export default function Header() {
           About me
         </Link>
 
-        {/* Кнопка Contact Us внутри бургер-меню */}
+        {/* Contact us button inside a burger-manager */}
         {menuOpen && (
           <Link
             href='/#contact'
@@ -85,7 +84,7 @@ export default function Header() {
         )}
       </nav>
 
-      {/* Контакт и темная тема на больших экранах */}
+      {/* Contact and dark theme on large screens */}
       <div className='hidden md:flex items-center gap-4 '>
         <Link href='/#contact'>
           <Button
