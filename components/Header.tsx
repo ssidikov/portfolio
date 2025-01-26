@@ -52,7 +52,7 @@ export default function Header() {
       <nav
         className={`${
           menuOpen ? 'block' : 'hidden'
-        } absolute top-16 left-0 w-full md:static md:flex md:gap-6 md:items-center md:justify-center md:mt-0 pb-4 md:pb-0 mt-4 md:flex-row bg-background/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none`}>
+        } absolute top-16 left-0 w-full md:static md:flex md:gap-6 md:items-center md:justify-center md:mt-0 pb-4 md:pb-0 mt-4 md:flex-row bg-background backdrop-blur-md md:bg-transparent md:backdrop-blur-none`}>
         <Link
           href='/#home'
           className='block px-4 py-2 text-sm hover:text-primary transition-colors md:inline text-gray-600 dark:text-gray-300'
