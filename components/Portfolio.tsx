@@ -103,7 +103,7 @@ export default function Portfolio() {
           <Button
             onClick={loadMoreProjects}
             variant='outline'
-            className='bg-primary text-primary-foreground hover:bg-indigo-600'>
+            className='bg-primary text-white hover:text-white hover:bg-indigo-600'>
             Show More
           </Button>
         </div>
