@@ -1,4 +1,3 @@
-import { Card } from '@/components/ui/card'
 import Image from 'next/image'
 
 const expertiseItems = [
@@ -31,7 +30,7 @@ export default function Expertise() {
       <h3 className='text-3xl font-bold mb-12'>My Expertise</h3>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
         {expertiseItems.map((item, index) => (
-          <Card key={index} className='p-6 space-y-4 bg-card'>
+          <article key={index} className='p-6 space-y-4 bg-card border rounded-lg'>
             <Image
               src={item.icon}
               alt={item.title}
@@ -43,7 +42,7 @@ export default function Expertise() {
             />
             <h4 className='font-semibold text-card-foreground'>{item.title}</h4>
             <p className='text-sm text-muted-foreground max-w-md'>{item.description}</p>
-          </Card>
+          </article>
         ))}
       </div>
     </section>
