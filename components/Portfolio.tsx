@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 
 const projects = [
   {
@@ -70,14 +68,16 @@ export default function Portfolio() {
           <h3 className='text-3xl font-bold'>Featured Portfolio</h3>
         </div>
         <Link href='/projects'>
-          <Button variant='outline'>View All</Button>
+          <button className='px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+            View All
+          </button>
         </Link>
       </div>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
         {projects.slice(0, visibleProjects).map((project, index) => (
-          <Card
+          <div
             key={index}
-            className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 bg-card'>
+            className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 bg-card border rounded-lg'>
             <div className='relative h-48'>
               <Image
                 src={project.image || '/placeholder.svg'}
@@ -90,22 +90,21 @@ export default function Portfolio() {
               <h4 className='font-semibold mb-2 text-card-foreground'>{project.title}</h4>
               <p className='text-sm text-muted-foreground mb-4'>{project.description}</p>
               <Link href={`/projects/${project.id}`}>
-                <Button variant='link' className='p-0 text-primary'>
+                <button className='pt-2 pb-2 text-primary hover:text-indigo-500 text-sm'>
                   View Details →
-                </Button>
+                </button>
               </Link>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
       {visibleProjects < projects.length && (
         <div className='mt-8 text-center'>
-          <Button
+          <button
             onClick={loadMoreProjects}
-            variant='outline'
-            className='bg-primary text-white hover:text-white hover:bg-indigo-600'>
+            className='px-4 py-2 text-sm text-white bg-primary rounded-md hover:bg-indigo-600 transition-colors'>
             Show More
-          </Button>
+          </button>
         </div>
       )}
     </section>
