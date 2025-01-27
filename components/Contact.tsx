@@ -1,6 +1,43 @@
+import { useState, useRef } from 'react'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import Popup from './Popup'
 
 export default function Contact() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsLoading(true)
+    setError(null)
+
+    const formData = new FormData(event.currentTarget)
+
+    try {
+      const response = await fetch('https://formspree.io/f/xjkknzdd', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        setIsPopupOpen(true) // show the plug when successful sending
+        formRef.current?.reset() // Clean the form
+        setTimeout(() => setIsPopupOpen(false), 5000) // Close the plug after 5 seconds
+      } else {
+        throw new Error('Failed to send message') // error processing
+      }
+    } catch (err) {
+      setError('An error occurred while sending the message. Please try again.') // Set the error
+    } finally {
+      setIsLoading(false) // We finish the load
+    }
+  }
+
   return (
     <div className='relative isolate bg-white dark:bg-gray-900'>
       <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
@@ -73,7 +110,7 @@ export default function Contact() {
                   <PhoneIcon aria-hidden='true' className='h-7 w-6 text-gray-400' />
                 </dt>
                 <dd>
-                  <a href='tel:+33626932734' className='hover:text-gray-900 dark:over:text-white'>
+                  <a href='tel:+33626932734' className='hover:text-gray-900 dark:hover:text-white'>
                     +33 6 26 93 27 34
                   </a>
                 </dd>
@@ -95,8 +132,8 @@ export default function Contact() {
           </div>
         </div>
         <form
-          method='POST'
-          action='https://formspree.io/f/xjkknzdd'
+          ref={formRef}
+          onSubmit={handleSubmit}
           className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
           <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
             <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
@@ -189,13 +226,16 @@ export default function Contact() {
             <div className='mt-8 flex justify-end'>
               <button
                 type='submit'
-                className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500'>
-                Send message
+                disabled={isLoading} // Отключаем кнопку при загрузке
+                className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed'>
+                {isLoading ? 'Sending...' : 'Send message'}
               </button>
             </div>
+            {error && <p className='mt-4 text-sm text-red-500 dark:text-red-400'>{error}</p>}
           </div>
         </form>
       </div>
+      <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </div>
   )
 }
