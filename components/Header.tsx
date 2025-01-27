@@ -85,13 +85,13 @@ export default function Header() {
       {/* Contact and dark theme on large screens */}
       <div className='hidden md:flex items-center gap-4'>
         <Link href='/#contact'>
-          <button className='px-4 py-2 text-sm font-medium bg-transparent border rounded-md  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+          <button className='px-4 py-2 text-sm border mr-2 p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
             Contact Me
           </button>
         </Link>
         <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className='border mr-2 p-2 rounded-md bg-background/80 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+          className='border mr-2 p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
           aria-label='Toggle theme'>
           <Sun className='absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
           <Moon className='relative h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
