@@ -2,29 +2,20 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import { Moon, Sun } from 'lucide-react'
+import { DarkModeToggle } from './ui/DarkModeToggle'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-background-100 container mx-auto px-4 py-2 flex items-center justify-between'>
-      <Link href='/' className='flex items-center gap-2'>
+      <Link href='/' className='flex items-center gap-2 z-50'>
         <Image src='/logo.svg' alt='Logo' width={200} height={100} />
       </Link>
 
       <div className='flex items-center md:hidden'>
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className='border mr-2 p-2 rounded-md bg-background/80 text-gray-800 dark:text-gray-200'
-          aria-label='Toggle theme'>
-          <Sun className='absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <Moon className='relative h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-          <span className='sr-only'>Toggle theme</span>
-        </button>
+        <DarkModeToggle />
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className='flex items-center justify-center w-10 h-10 rounded-md focus:outline-none focus:ring-2'
@@ -89,14 +80,7 @@ export default function Header() {
             Contact Me
           </button>
         </Link>
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className='border mr-2 p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
-          aria-label='Toggle theme'>
-          <Sun className='absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <Moon className='relative h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-          <span className='sr-only'>Toggle theme</span>
-        </button>
+        <DarkModeToggle />
       </div>
     </header>
   )

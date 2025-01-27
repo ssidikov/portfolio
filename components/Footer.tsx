@@ -13,10 +13,10 @@ export default function Footer() {
           <div className='flex items-center order-1'>
             <Image src='/logo.svg' alt='Logo' layout='intrinsic' width={200} height={100} />
           </div>
-          <div className='hidden md:flex items-center text-sm text-muted-foreground order-3'>
+          <div className='hidden md:flex items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
             © {currentYear} Sardorbek SIDIKOV. All rights reserved.
           </div>
-          <div className='flex items-center gap-4 order-2'>
+          <div className='flex items-center gap-4 order-2 md:order-3'>
             <Link
               href='https://github.com/ssidikov'
               className='text-muted-foreground hover:text-primary transition-colors'>

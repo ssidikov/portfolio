@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import Header from '@/components/Header'
-import { Github, Twitter, Linkedin, Facebook } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 const projects = [
   {
@@ -46,20 +44,22 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className='min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+    <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
-      <main className='container mx-auto px-4 py-20'>
-        <div className='flex justify-between items-center mb-12'>
-          <h1 className='text-3xl font-bold text-foreground'>All Projects</h1>
+      <main className='container mx-auto px-4 py-12 pt-32'>
+        <div className='flex justify-between mb-12'>
+          <h1 className='text-3xl font-bold'>All Projects</h1>
           <Link href='/'>
-            <Button variant='outline'>Back to Home</Button>
+            <button className='px-4 py-2 text-sm border mb-10 p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
+              Back to Home
+            </button>
           </Link>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {projects.map((project, index) => (
-            <Card
+            <div
               key={index}
-              className='overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card'>
+              className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 bg-card border rounded-lg'>
               <div className='relative h-48'>
                 <Image
                   src={project.image || '/placeholder.svg'}
@@ -72,56 +72,16 @@ export default function ProjectsPage() {
                 <h4 className='font-semibold mb-2 text-card-foreground'>{project.title}</h4>
                 <p className='text-sm text-muted-foreground mb-4'>{project.description}</p>
                 <Link href={`/projects/${project.id}`}>
-                  <Button variant='link' className='p-0 text-primary'>
+                  <button className='pt-2 pb-2 text-primary hover:text-indigo-500 text-sm'>
                     View Details →
-                  </Button>
+                  </button>
                 </Link>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </main>
-      <footer className='border-t bg-card'>
-        <div className='container mx-auto px-4 py-12'>
-          <div className='flex flex-col md:flex-row justify-between items-center gap-6'>
-            <div className='flex items-center gap-2'>
-              <div className='w-8 h-8 rounded-full bg-primary' />
-              <span className='font-semibold text-card-foreground'>Portfolio</span>
-            </div>
-            <nav className='flex items-center gap-6'>
-              <Link href='/#home' className='text-sm hover:text-primary transition-colors'>
-                Home
-              </Link>
-              <Link href='/#portfolio' className='text-sm hover:text-primary transition-colors'>
-                Portfolio
-              </Link>
-              <Link href='/#about' className='text-sm hover:text-primary transition-colors'>
-                About Me
-              </Link>
-              <Link href='/#contact' className='text-sm hover:text-primary transition-colors'>
-                Contact
-              </Link>
-            </nav>
-            <div className='flex items-center gap-4'>
-              <a href='#' className='text-muted-foreground hover:text-primary transition-colors'>
-                <Github className='w-5 h-5' />
-              </a>
-              <a href='#' className='text-muted-foreground hover:text-primary transition-colors'>
-                <Twitter className='w-5 h-5' />
-              </a>
-              <a href='#' className='text-muted-foreground hover:text-primary transition-colors'>
-                <Linkedin className='w-5 h-5' />
-              </a>
-              <a href='#' className='text-muted-foreground hover:text-primary transition-colors'>
-                <Facebook className='w-5 h-5' />
-              </a>
-            </div>
-          </div>
-          <div className='mt-8 text-center text-sm text-muted-foreground'>
-            © 2024 Portfolio. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
