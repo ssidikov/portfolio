@@ -93,8 +93,9 @@ export default function Contact() {
             <h2 className='text-lg text-primary mb-2'>Get in Touch</h2>
             <h3 className='text-3xl font-bold mb-4 text-card-foreground'>Contact me</h3>
             <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'>
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu.
-              Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.
+              Excited to join your team! If you're looking for a passionate and creative Frontend
+              Developer, feel free to reach out. I'd be happy to discuss how my skills and
+              experience can contribute to your project.
             </p>
             <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-300'>
               <div className='flex gap-x-4'>
