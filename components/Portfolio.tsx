@@ -1,57 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const projects = [
-  {
-    id: '1',
-    title: 'Abune',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '2',
-    title: 'App Dashboard',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '3',
-    title: 'Easy Rent',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '4',
-    title: 'Project X',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '5',
-    title: 'Project Y',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '6',
-    title: 'Project Z',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '7',
-    title: 'Project A',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-  {
-    id: '8',
-    title: 'Project B',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/placeholder.svg',
-  },
-]
+import { projects } from '@/data/portfolio-data'
 
 export default function Portfolio() {
   const [visibleProjects, setVisibleProjects] = useState(4)
@@ -74,9 +24,9 @@ export default function Portfolio() {
         </Link>
       </div>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-        {projects.slice(0, visibleProjects).map((project, index) => (
+        {projects.slice(0, visibleProjects).map((project) => (
           <div
-            key={index}
+            key={project.id}
             className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 bg-card border rounded-lg'>
             <div className='relative h-48'>
               <Image

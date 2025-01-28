@@ -1,18 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
-
-const technologies = [
-  { name: 'React', icon: '/logo/react.svg' },
-  { name: 'Next.js', icon: '/logo/nextjs.svg' },
-  { name: 'TypeScript', icon: '/logo/typescript.svg' },
-  { name: 'JavaScript', icon: '/logo/javascript.svg' },
-  { name: 'Tailwind', icon: '/logo/tailwindcss.svg' },
-  { name: 'Redux', icon: '/logo/redux.svg' },
-  { name: 'Vite', icon: '/logo/vite.svg' },
-  { name: 'Git', icon: '/logo/git.svg' },
-  { name: 'npm', icon: '/logo/npm.svg' },
-  { name: 'Figma', icon: '/logo/figma.svg' },
-]
+import { technologies } from '@/data/portfolio-data'
 
 export default function Technologies() {
   const [hoveredTech, setHoveredTech] = useState('Technologies')

@@ -1,27 +1,5 @@
 import Image from 'next/image'
-
-const expertiseItems = [
-  {
-    title: 'Web development',
-    description: 'Building responsive and high-performance websites using modern technologies',
-    icon: '/logo/code.svg',
-  },
-  {
-    title: 'UI & UX Design',
-    description: 'Designing interfaces focused on usability and visual harmony',
-    icon: '/logo/uxui.svg',
-  },
-  {
-    title: 'Branding & Logo',
-    description: 'Creating unique logos and visual identities to strengthen brand',
-    icon: '/logo/logo.svg',
-  },
-  {
-    title: 'API Integration',
-    description: 'Developing seamless connections between user interfaces and backend APIs',
-    icon: '/logo/api.svg',
-  },
-]
+import { expertiseItems } from '@/data/portfolio-data'
 
 export default function Expertise() {
   return (

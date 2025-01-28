@@ -2,23 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { projects } from '@/data/portfolio-data'
 
 // This would typically come from a database or API
 const getProjectById = (id: string) => {
-  const projects = [
-    {
-      id: '1',
-      title: 'Abune',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae hendrerit dolor sollicitudin amet augue. Nulla cursus a tempor purus maxim hendrerit dolor sollicitudin amet augue.',
-      image: '/placeholder.svg',
-      longDescription:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae hendrerit dolor sollicitudin amet augue. Nulla cursus a tempor purus maxim hendrerit dolor sollicitudin amet augue. Ut euam porttitor ligit maximus. Vestibulum dolor mattis consectetur augit hendrerit dolor sollicitudin amet augue. Nulla cursus a tempor purus.',
-      technologies: ['React', 'Next.js', 'Tailwind CSS'],
-      link: 'https://example.com',
-    },
-    // Add more projects as needed
-  ]
   return projects.find((p) => p.id === id)
 }
 
