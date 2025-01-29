@@ -3,7 +3,7 @@ export const projects = [
     id: '1',
     title: 'Kasa',
     description: 'A rental platform with a responsive design.',
-    image: '/projects/kasa.png',
+    image: '/projects/kasa.webp',
     longDescription:
       'Kasa provides users with a user-friendly interface for searching and booking accommodations. The project includes navigation, dropdown menus, and a fully responsive design.',
     technologies: ['React', 'SASS'],
@@ -13,7 +13,7 @@ export const projects = [
     id: '2',
     title: 'SportSee',
     description: 'A dashboard for analyzing fitness data.',
-    image: '/projects/sport-see.png',
+    image: '/projects/sport-see.webp',
     longDescription:
       'SportSee visualizes user fitness data, including sessions and key metrics. Built with React and API integration.',
     technologies: ['React', 'React Router', 'Recharts', 'SASS', 'Axios'],
@@ -23,7 +23,7 @@ export const projects = [
     id: '3',
     title: 'ArgentBank',
     description: 'A banking interface for account management.',
-    image: '/projects/argent-bank.png',
+    image: '/projects/argent-bank.webp',
     longDescription:
       'ArgentBank offers users secure and convenient access to their account information. It features authentication and state management using Redux.',
     technologies: ['React', 'Redux', 'React Router', 'REST API', 'Swagger'],
@@ -33,7 +33,7 @@ export const projects = [
     id: '4',
     title: 'HRnet',
     description: 'A modern application for managing employee records.',
-    image: '/projects/hrNet.png',
+    image: '/projects/hrNet.webp',
     longDescription:
       'HRnet allows users to add, view, and manage employee data with ease. It includes a responsive design, local storage support, and features like form validation, real-time updates, and data persistence.',
     technologies: ['React', 'Redux Toolkit', 'Material-UI', 'SASS', 'Vite', 'date-fns'],
@@ -44,7 +44,7 @@ export const projects = [
     title: 'Les petits plats',
     description:
       'Development of a search algorithm for a cooking recipe platform with performance optimization.',
-    image: '/projects/petits-plats.png',
+    image: '/projects/petits-plats.webp',
     longDescription:
       'This project focused on creating a performant search algorithm for a cooking recipe platform. It involved designing an intuitive UI, implementing two versions of search algorithms (native loops and functional programming), comparing their performance using Jsben.ch, and documenting the results while adhering to Green Code principles.',
     technologies: [
@@ -61,7 +61,7 @@ export const projects = [
     id: '6',
     title: 'Trendy Cookies',
     description: 'A website for ordering trendy cookies.',
-    image: '/projects/cookies.png',
+    image: '/projects/cookies.webp',
     longDescription:
       'Trendy Cookies offers users an easy-to-use platform for ordering sweet cookies. Built with Angular, it includes a responsive design and simple ordering process.',
     technologies: ['Angular', 'CSS', 'HTML'],
@@ -71,7 +71,7 @@ export const projects = [
     id: '7',
     title: 'Fisheye',
     description: 'An accessible platform for photographers to showcase their portfolios.',
-    image: '/projects/fisheye.png',
+    image: '/projects/fisheye.webp',
     longDescription:
       'Fisheye is a web application that allows photographers to present their portfolios. It includes features like dynamic page rendering, LightBox for media, contact forms, and like management. The project focuses on accessibility, modularity, and using JavaScript design patterns.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'JSON', 'AChecker'],
@@ -81,7 +81,7 @@ export const projects = [
     id: '8',
     title: 'GameOn Landing Page',
     description: 'A dynamic landing page for a gaming conference and contest organization.',
-    image: '/projects/game-on.png',
+    image: '/projects/game-on.webp',
     longDescription:
       'GameOn is a landing page for a small company specializing in organizing gaming conferences and contests. The project involves dynamic interactions, form validation, responsive design, and uses JavaScript to manipulate HTML and CSS.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
@@ -92,7 +92,7 @@ export const projects = [
     title: 'Ohmyfood Paris',
     description:
       'A dynamic page showcasing the menus of four Parisian restaurants with online booking and menu composition.',
-    image: '/projects/ohmyfood.png',
+    image: '/projects/ohmyfood.webp',
     longDescription:
       'This project involves developing a webpage presenting the menus of four renowned Parisian restaurants, with online booking functionality and menu composition. The site incorporates CSS animations to enhance user experience and was designed using a mobile-first approach.',
     technologies: ['HTML', 'SASS', 'CSS Animations', 'Figma', 'Flexbox'],
@@ -103,7 +103,7 @@ export const projects = [
     title: 'Billed Expense Feature',
     description:
       'Debugging and testing the employee expense submission feature for a SaaS HR solution.',
-    image: '/projects/billed.png',
+    image: '/projects/billed.webp',
     longDescription:
       'This project involved debugging and writing unit, integration, and end-to-end tests for the employee expense submission feature. Tasks included fixing bugs using Chrome Debugger, ensuring over 80% test coverage, and drafting a structured manual test plan for core functionalities.',
     technologies: ['JavaScript', 'Jest', 'Chrome Debugger', 'End-to-End Testing'],
@@ -113,7 +113,7 @@ export const projects = [
     id: '11',
     title: 'Booki - Travel Agency Homepage',
     description: 'Developed a responsive homepage for a travel agency using HTML and CSS.',
-    image: '/projects/booki.png',
+    image: '/projects/booki.webp',
     longDescription:
       'In this project, I developed the homepage for a travel agency using HTML and CSS. The focus was on creating a responsive design compatible with various screen sizes and devices, using the Figma designs provided for mobile, tablet, and desktop versions.',
     technologies: ['HTML', 'CSS', 'Figma', 'Flexbox', 'Grid'],
@@ -123,7 +123,7 @@ export const projects = [
     id: '12',
     title: 'Burger House - Landing Page',
     description: 'Created a landing page with a burger order form.',
-    image: '/projects/burger-house.png',
+    image: '/projects/burger-house.webp',
     longDescription:
       'This project involves creating a landing page for a burger restaurant with an interactive order form. The page allows users to select and customize their burger order.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
@@ -133,7 +133,7 @@ export const projects = [
     id: '13',
     title: 'Learn Home - Tutoring App',
     description: 'Defining the requirements and designing the solution for a tutoring app.',
-    image: '/projects/learn-home.png',
+    image: '/projects/learn-home.webp',
     longDescription:
       'This project involved defining the requirements and creating a technical solution for a tutoring application for the Learn@Home association. The goal was to identify the functional needs of the platform, design user stories, create use case diagrams, develop mockups using Figma, and build a Kanban board for project management. The project was executed using an agile methodology to ensure efficient planning and clear communication with the client and development team.',
     technologies: ['Figma', 'Kanban', 'User Stories', 'Agile Methodology', 'UX/UI Design'],
