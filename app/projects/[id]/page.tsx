@@ -4,13 +4,12 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { projects } from '@/data/portfolio-data'
 
-// This would typically come from a database or API
-const getProjectById = (id: string) => {
-  return projects.find((p) => p.id === id)
+const getProjectById = async (id: string) => {
+  return projects.find((p) => p.id === id) || null
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  const project = getProjectById(params.id)
+export default async function ProjectPage({ params }: { params: { id: string } }) {
+  const project = await getProjectById(params.id)
 
   if (!project) {
     return <div className='text-center py-12'>Project not found</div>
@@ -31,7 +30,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               src={project.image || '/placeholder.svg'}
               alt={project.title}
               fill
-              className='object-cover'
+              className='object-cover object-top'
             />
           </div>
           <div className='space-y-6'>
