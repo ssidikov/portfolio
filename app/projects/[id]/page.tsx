@@ -33,8 +33,8 @@ export default async function ProjectPage({ params }: { params: { id: string } }
               className='object-cover object-top'
             />
           </div>
-          <div className='space-y-6'>
-            <h1 className='text-4xl font-bold'>{project.title}</h1>
+          <div className='space-y-6 flex flex-col justify-between'>
+            <h1 className='text-4xl font-bold '>{project.title}</h1>
             <p className='text-lg text-gray-600 dark:text-gray-400'>{project.longDescription}</p>
             <div>
               <h2 className='text-2xl font-semibold mb-2'>Technologies Used</h2>
@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: { params: { id: string } }
               href={project.link}
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-block px-5 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-300 text-sm'>
+              className='inline-block px-5 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-300 text-sm max-w-32 text-center'>
               Visit Project
             </a>
           </div>

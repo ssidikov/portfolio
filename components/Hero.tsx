@@ -6,8 +6,8 @@ export default function Hero() {
     <section className='pt-9 md:pt-32 container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center'>
       <div className='space-y-6 py-20'>
         <h1 className='text-4xl md:text-5xl/[1.2] font-bold leading-tight'>
-          <span className='text-primary'>Developer </span>of Modern <br />
-          <span className='text-primary'> Web </span>Experiences
+          <span className='gradient-text'>Developer </span>of Modern <br />
+          <span className='gradient-text'> Web </span>Experiences
         </h1>
         <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
           <div className='relative aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>

@@ -39,7 +39,7 @@ export default function Portfolio({
         {projects.slice(0, showAllProjects ? projects.length : visibleProjects).map((project) => (
           <div
             key={project.id}
-            className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 bg-card border rounded-lg'>
+            className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded'>
             <div className='relative h-48'>
               <Image
                 src={project.image || '/placeholder.svg'}
