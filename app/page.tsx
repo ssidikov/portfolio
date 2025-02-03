@@ -10,7 +10,7 @@ import Footer from '@/components/Footer'
 
 export default function Page() {
   return (
-    <div className='scroll-smooth min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
+    <div className='min-h-screen bg-background text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
       <Hero />
       <Expertise />
