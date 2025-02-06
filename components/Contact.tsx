@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import Popup from './Popup'
+import Image from 'next/image'
 
 export default function Contact() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
@@ -90,8 +91,13 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <h2 className='text-lg text-primary mb-2'>Get in Touch</h2>
-            <h3 className='text-3xl font-bold mb-4 text-card-foreground'>Contact me</h3>
+            <div className='flex justify-between items-center'>
+              <div>
+                <h2 className='text-lg text-primary mb-2'>Get in Touch</h2>
+                <h3 className='text-3xl font-bold mb-4 text-card-foreground'>Contact me</h3>
+              </div>
+              <Image src='/images/contact.png' alt='Contact me' width={100} height={100} />
+            </div>
             <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'>
               If you’re looking for a Web Developer who is : <br />→ Proficient in JavaScript,
               React, Next.js, and modern web technologies. <br /> → Committed to clean code,
@@ -229,7 +235,7 @@ export default function Contact() {
             <div className='mt-8 flex justify-end'>
               <button
                 type='submit'
-                disabled={isLoading} // Отключаем кнопку при загрузке
+                disabled={isLoading} // Disconnect the button when loading
                 className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed'>
                 {isLoading ? 'Sending...' : 'Send message'}
               </button>
