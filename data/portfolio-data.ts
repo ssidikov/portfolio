@@ -139,6 +139,16 @@ export const projects = [
     technologies: ['Figma', 'Kanban', 'User Stories', 'Agile Methodology', 'UX/UI Design'],
     link: '#',
   },
+  {
+    id: '14',
+    title: 'Landing Page for Euclid - Project Systems',
+    description: 'Landing page for the company Euclid - Project Systems.',
+    image: '/projects/euclid.webp',
+    longDescription:
+      'Developed a responsive landing page for the company Euclid - Project Systems, ensuring a modern and professional look.',
+    technologies: ['Figma', 'HTML', 'CSS', 'Flexbox'],
+    link: 'https://ssidikov.github.io/Evklid_website/',
+  },
 ]
 
 export const expertiseItems = [
