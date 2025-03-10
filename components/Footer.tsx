@@ -11,7 +11,13 @@ export default function Footer() {
       <div className='container mx-auto px-4 py-12'>
         <div className='flex flex-row justify-between gap-2'>
           <div className='flex items-center order-1'>
-            <Image src='/logo.svg' alt='Logo' layout='intrinsic' width={200} height={100} />
+            <Image
+              src='/logo.svg'
+              alt='Logo'
+              sizes='(max-width: 768px) 100px, 100px'
+              width={200}
+              height={100}
+            />
           </div>
           <div className='hidden md:flex items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
             © {currentYear} Sardorbek SIDIKOV. All rights reserved.
