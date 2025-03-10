@@ -31,6 +31,7 @@ export default function Header() {
             alt='Logo'
             width={200}
             height={100}
+            priority
             className='w-auto h-10 md:h-14' // Adaptive height of the logo
           />
         </Link>

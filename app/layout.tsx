@@ -8,7 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portfolio Website',
+  title: 'Sardorbek Sidikov - Portfolio',
   description: 'Modern web application portfolio',
   icons: {
     icon: '/favicon.png',
