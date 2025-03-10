@@ -31,7 +31,7 @@ export default function Portfolio({
           <h3 className='text-3xl font-bold text-gray-900 dark:text-white'>{subtitle}</h3>
         </div>
         {!showAllProjects && (
-          <Link href='/projects'>
+          <Link href='/projects' className='flex self-end'>
             <button className='px-4 py-2 text-sm font-medium bg-transparent border border-gray-300 dark:border-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
               View All
             </button>
