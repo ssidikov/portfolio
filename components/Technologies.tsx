@@ -49,9 +49,21 @@ export default function Technologies() {
             }`}
             onMouseEnter={() => setHoveredTech(tech.name)}
             onMouseLeave={() => setHoveredTech('Technologies')}>
-            <div className='relative w-10 h-10 md:w-14 md:h-14'>
+            <motion.div
+              className='relative w-10 h-10 md:w-14 md:h-14 transition-all duration-300 ease-in-out 
+             group-hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.4)] 
+             dark:group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]'
+              animate={{ opacity: 1 }}
+              whileHover={{
+                opacity: [1, 0.9, 1],
+                transition: {
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                },
+              }}>
               <Image src={tech.icon} alt={tech.name} fill className='object-contain dark:invert' />
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>
