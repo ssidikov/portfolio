@@ -47,9 +47,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
         <div>
           <h2 className='text-lg text-primary mb-2'>{title || t('portfolio.title')}</h2>
           <h3 className='text-3xl font-bold'>{subtitle || t('portfolio.subtitle')}</h3>
-        </div>
-        {showAllProjects && (
-          <Link href='/'>
+        </div>        {showAllProjects && (
+          <Link href='/#portfolio'>
             <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
               ← {t('nav.home')}
             </button>
