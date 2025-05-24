@@ -4,6 +4,7 @@ import type React from 'react'
 
 import { useState, useRef, useEffect } from 'react'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { motion, AnimatePresence } from 'framer-motion'
 import Popup from './Popup'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
@@ -262,13 +263,19 @@ export default function Contact() {
                         formErrors.firstName
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
                           : 'ring-gray-300 focus:ring-primary'
-                      }`}
-                    />
-                    {formErrors.firstName && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.firstName}
-                      </p>
-                    )}
+                      }`}                    />
+                    <AnimatePresence>
+                      {formErrors.firstName && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                          className='mt-1 text-sm text-red-500 dark:text-red-400'>
+                          {formErrors.firstName}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
                 <div>
@@ -314,13 +321,19 @@ export default function Contact() {
                         formErrors.email
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
                           : 'ring-gray-300 dark:ring-white/10 focus:ring-primary'
-                      }`}
-                    />
-                    {formErrors.email && (
-                      <p className='mt-1 text-sm text-red-500 dark:text-red-400'>
-                        {formErrors.email}
-                      </p>
-                    )}
+                      }`}                    />
+                    <AnimatePresence>
+                      {formErrors.email && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                          className='mt-1 text-sm text-red-500 dark:text-red-400'>
+                          {formErrors.email}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
                 <div className='sm:col-span-2'>

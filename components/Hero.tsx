@@ -4,9 +4,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 export default function Hero() {
   const { t } = useLanguage()
+  const { scrollToSection } = useSmoothScroll()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    scrollToSection(sectionId)
+  }
 
   return (
     <section
@@ -37,20 +44,24 @@ export default function Hero() {
 
         <h2 className='sm:text-lg md:text-xl text-muted-foreground max-w-xl'>
           {t('hero.description')}
-        </h2>
-
-        <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-          <Link href='/#contact' className='w-1/2 md:w-48'>
+        </h2>        <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
+          <a 
+            href='/#contact' 
+            className='w-1/2 md:w-48'
+            onClick={(e) => handleNavClick(e, 'contact')}>
             <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
               {t('hero.contact')}
             </button>
-          </Link>
+          </a>
 
-          <Link href='/#portfolio' className='w-1/2 md:w-48'>
+          <a 
+            href='/#portfolio' 
+            className='w-1/2 md:w-48'
+            onClick={(e) => handleNavClick(e, 'portfolio')}>
             <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>
               {t('hero.viewWork')}
             </button>
-          </Link>
+          </a>
         </div>
       </AnimatedSection>
 

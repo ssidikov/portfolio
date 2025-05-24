@@ -44,16 +44,16 @@ function Card({
     mouseX.set(clientX - left)
     mouseY.set(clientY - top)
   }
-
-  const background = useMotionTemplate`radial-gradient(650px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.15), transparent 80%)`
+  const background = useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.1), transparent 70%)`
 
   return (
     <div
-      className='group relative flex flex-col h-full rounded-xl border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900 p-6 transition-shadow min-h-[190px] md:min-h-[200px]'
+      className='group relative flex flex-col h-full rounded-xl border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900 p-6 min-h-[190px] md:min-h-[200px] smooth-animation'
       onMouseMove={handleMouseMove}>
       <motion.div
-        className='pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100'
+        className='pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100'
         style={{ background }}
+        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
       />
       <div className='space-y-4'>
         <Image

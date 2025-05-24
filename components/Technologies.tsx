@@ -19,11 +19,11 @@ const itemVariants = {
 }
 
 export default function Technologies() {
+  const [hoveredTech, setHoveredTech] = useState('Technologies')
   const { t } = useLanguage()
-  const [hoveredTech, setHoveredTech] = useState(t('tech.title'))
 
   return (
-    <section className='container mx-auto px-4 pb-12'>
+    <section className='container mx-auto px-4 py-20'>
       <div className='grid grid-cols-4 md:grid-cols-6 gap-[1px] border border-gray-800 bg-gray-800'>
         {/* Title */}
         <AnimatedSection className='col-span-4 md:col-span-2 bg-background p-[clamp(1rem,2vw,2rem)] flex flex-col border justify-cente'>

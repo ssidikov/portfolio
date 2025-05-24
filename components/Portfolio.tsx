@@ -3,9 +3,11 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { projects } from '@/data/portfolio-data'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 interface PortfolioProps {
   title?: string
@@ -16,6 +18,17 @@ interface PortfolioProps {
 export default function Portfolio({ title, subtitle, showAllProjects = false }: PortfolioProps) {
   const [visibleProjects, setVisibleProjects] = useState(4)
   const { t, language } = useLanguage()
+  const { scrollToSection } = useSmoothScroll()
+  const router = useRouter()
+  const handleHomeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    // Используем Next.js router для навигации без перезагрузки страницы
+    router.push('/')
+    // Небольшая задержка для завершения навигации, затем скролл к секции portfolio
+    setTimeout(() => {
+      scrollToSection('portfolio')
+    }, 150)
+  }
 
   const loadMoreProjects = () => {
     setVisibleProjects((prev) => Math.min(prev + 4, projects.length))
@@ -41,18 +54,19 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   }
 
   const localizedProjects = getLocalizedProjects()
-
   return (
-    <section id='portfolio' className='container mx-auto px-4'>      <AnimatedSection className='flex justify-between mb-12'>
+    <section id='portfolio' className='container mx-auto px-4'>
+      <AnimatedSection className='flex justify-between mb-12'>
         <div>
           <h2 className='text-lg text-primary mb-2'>{title || t('portfolio.title')}</h2>
           <h3 className='text-3xl font-bold'>{subtitle || t('portfolio.subtitle')}</h3>
-        </div>        {showAllProjects && (
-          <Link href='/#portfolio'>
-            <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
-              ← {t('nav.home')}
-            </button>
-          </Link>
+        </div>{' '}
+        {showAllProjects && (
+          <button
+            onClick={handleHomeClick}
+            className='h-fit px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
+            ← {t('nav.home')}
+          </button>
         )}
         {!showAllProjects && (
           <Link href='/projects'>
@@ -60,14 +74,14 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
               {t('portfolio.viewAll')}
             </button>
           </Link>
-        )}
+        )}{' '}
       </AnimatedSection>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
         {localizedProjects
           .slice(0, showAllProjects ? localizedProjects.length : visibleProjects)
-          .map((project) => (
-            <AnimatedSection key={project.id}>
-              <div className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded flex flex-col h-full min-h-[420px]'>
+          .map((project, index) => (
+            <AnimatedSection key={project.id} delay={index * 0.1}>
+              <div className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded flex flex-col h-full min-h-[420px] smooth-animation'>
                 <div className='relative h-48'>
                   <Image
                     src={project.image || '/placeholder.svg'}
