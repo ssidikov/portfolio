@@ -2,11 +2,23 @@
 
 import { Check } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
-import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
+import { useTariff } from '@/context/TariffContext'
 
 export default function Prices() {
   const { t } = useLanguage()
+  const { setSelectedTariff } = useTariff()
+
+  const handleTariffSelect = (tariffName: string) => {
+    setSelectedTariff(tariffName)
+    // Плавная прокрутка к секции контактов
+    setTimeout(() => {
+      const contactElement = document.getElementById('contact')
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }, 100)
+  }
 
   const pricingTiers = [
     {
@@ -94,30 +106,25 @@ export default function Prices() {
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <Link href='/#contact'>
-                <button
-                  className={`w-full py-3 rounded-md font-medium transition-colors ${
-                    tier.highlighted
-                      ? 'bg-indigo-500 text-white hover:bg-indigo-600'
-                      : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
-                  }`}>
-                  {tier.cta}
-                </button>
-              </Link>
+              </div>              <button
+                onClick={() => handleTariffSelect(tier.name)}
+                className={`w-full py-3 rounded-md font-medium transition-colors ${
+                  tier.highlighted
+                    ? 'bg-indigo-500 text-white hover:bg-indigo-600'
+                    : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}>
+                {tier.cta}
+              </button>
             </div>
           </AnimatedSection>
         ))}
-      </div>
-
-      <AnimatedSection className='mt-16 text-center'>
+      </div>      <AnimatedSection className='mt-16 text-center'>
         <p className='text-lg mb-6'>{t('prices.custom')}</p>
-        <Link href='/#contact'>
-          <button className='px-6 py-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors'>
-            {t('prices.quote')}
-          </button>
-        </Link>
+        <button 
+          onClick={() => handleTariffSelect('')}
+          className='px-6 py-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors'>
+          {t('prices.quote')}
+        </button>
       </AnimatedSection>
     </section>
   )

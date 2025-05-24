@@ -142,9 +142,25 @@ const translations: Record<Language, TranslationMap> = {
     'contact.email': 'E-mail',
     'contact.placeholder.email': 'Votre adresse e-mail',
     'contact.phone': 'Téléphone',
-    'contact.placeholder.phone': 'Votre numéro de téléphone',
-    'contact.message': 'Message',
+    'contact.placeholder.phone': 'Votre numéro de téléphone',    'contact.message': 'Message',
     'contact.placeholder.message': 'Votre message',
+    'contact.sending': 'Envoi en cours...',
+
+    // Form validation errors
+    'validation.firstName.required': 'Le prénom est obligatoire',
+    'validation.firstName.minLength': 'Le prénom doit contenir au moins 2 caractères',
+    'validation.lastName.required': 'Le nom est obligatoire',
+    'validation.lastName.minLength': 'Le nom doit contenir au moins 2 caractères',
+    'validation.email.required': 'L\'adresse e-mail est obligatoire',
+    'validation.email.invalid': 'Veuillez saisir une adresse e-mail valide',
+    'validation.phone.required': 'Le numéro de téléphone est obligatoire',
+    'validation.phone.invalid': 'Veuillez saisir un numéro de téléphone valide',
+    'validation.tariff.required': 'Veuillez sélectionner un tarif',    'validation.message.required': 'Le message est obligatoire',
+    'validation.message.minLength': 'Le message doit contenir au moins 10 caractères',
+
+    // Success popup messages
+    'popup.success.title': 'Envoyé avec succès !',
+    'popup.success.message': 'Votre message a été envoyé avec succès. Nous vous répondrons bientôt !',
 
     // Footer
     'footer.rights':
@@ -261,9 +277,25 @@ const translations: Record<Language, TranslationMap> = {
     'contact.email': 'Email',
     'contact.placeholder.email': 'Your email address',
     'contact.phone': 'Phone',
-    'contact.placeholder.phone': 'Your phone number',
-    'contact.message': 'Message',
+    'contact.placeholder.phone': 'Your phone number',    'contact.message': 'Message',
     'contact.placeholder.message': 'Your message',
+    'contact.sending': 'Sending...',
+
+    // Form validation errors
+    'validation.firstName.required': 'First name is required',
+    'validation.firstName.minLength': 'First name must be at least 2 characters',
+    'validation.lastName.required': 'Last name is required',
+    'validation.lastName.minLength': 'Last name must be at least 2 characters',
+    'validation.email.required': 'Email address is required',
+    'validation.email.invalid': 'Please enter a valid email address',
+    'validation.phone.required': 'Phone number is required',
+    'validation.phone.invalid': 'Please enter a valid phone number',
+    'validation.tariff.required': 'Please select a pricing plan',    'validation.message.required': 'Message is required',
+    'validation.message.minLength': 'Message must be at least 10 characters',
+
+    // Success popup messages
+    'popup.success.title': 'Successfully Sent!',
+    'popup.success.message': 'Your message has been sent successfully. We will get back to you soon!',
 
     'footer.rights': 'Sardorbek Sidikov — Web Developer in Paris. Custom website development.',
   },
@@ -377,9 +409,25 @@ const translations: Record<Language, TranslationMap> = {
     'contact.email': 'Электронная почта',
     'contact.placeholder.email': 'Ваш e-mail',
     'contact.phone': 'Телефон',
-    'contact.placeholder.phone': 'Ваш номер телефона',
-    'contact.message': 'Сообщение',
+    'contact.placeholder.phone': 'Ваш номер телефона',    'contact.message': 'Сообщение',
     'contact.placeholder.message': 'Ваше сообщение',
+    'contact.sending': 'Отправка...',
+
+    // Form validation errors
+    'validation.firstName.required': 'Имя обязательно для заполнения',
+    'validation.firstName.minLength': 'Имя должно содержать минимум 2 символа',
+    'validation.lastName.required': 'Фамилия обязательна для заполнения',
+    'validation.lastName.minLength': 'Фамилия должна содержать минимум 2 символа',
+    'validation.email.required': 'Электронная почта обязательна для заполнения',
+    'validation.email.invalid': 'Пожалуйста, введите корректный адрес электронной почты',
+    'validation.phone.required': 'Номер телефона обязателен для заполнения',
+    'validation.phone.invalid': 'Пожалуйста, введите корректный номер телефона',
+    'validation.tariff.required': 'Пожалуйста, выберите тарифный план',    'validation.message.required': 'Сообщение обязательно для заполнения',
+    'validation.message.minLength': 'Сообщение должно содержать минимум 10 символов',
+
+    // Success popup messages
+    'popup.success.title': 'Успешно отправлено!',
+    'popup.success.message': 'Ваше сообщение было успешно отправлено. Мы скоро свяжемся с вами!',
 
     'footer.rights': 'Сардорбек Сидиков — Веб-разработчик во Франции. Создание сайтов под ключ.',
   },
