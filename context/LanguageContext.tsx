@@ -252,6 +252,7 @@ const translations: Record<Language, TranslationMap> = {
     'contact.subtitle': 'Let’s Talk',
     'contact.description':
       'Have a project in mind? I can help you design, build and launch it. Whether it’s a business website or a custom web app, I’m here to turn your ideas into reality.',
+    'contact.address': 'Paris, France',
     'contact.send': 'Request a Quote',
     'contact.firstName': 'First Name',
     'contact.placeholder.firstName': 'Your first name',
