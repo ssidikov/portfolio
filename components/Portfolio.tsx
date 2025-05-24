@@ -43,12 +43,18 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const localizedProjects = getLocalizedProjects()
 
   return (
-    <section id='portfolio' className='container mx-auto px-4 pt-20'>
-      <AnimatedSection className='flex justify-between items-center mb-12'>
+    <section id='portfolio' className='container mx-auto px-4'>      <AnimatedSection className='flex justify-between mb-12'>
         <div>
           <h2 className='text-lg text-primary mb-2'>{title || t('portfolio.title')}</h2>
           <h3 className='text-3xl font-bold'>{subtitle || t('portfolio.subtitle')}</h3>
         </div>
+        {showAllProjects && (
+          <Link href='/'>
+            <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
+              ← {t('nav.home')}
+            </button>
+          </Link>
+        )}
         {!showAllProjects && (
           <Link href='/projects'>
             <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>

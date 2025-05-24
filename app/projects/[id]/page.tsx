@@ -5,14 +5,13 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { projects } from '@/data/portfolio-data'
-import { LanguageProvider } from '@/context/LanguageContext'
 import { useLanguage } from '@/context/LanguageContext'
 
 const getProjectById = (id: string) => {
   return projects.find((p) => p.id === id) || null
 }
 
-function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id: string }> }) {
+export default function ProjectPage({ params }: { params: { id: string } | Promise<{ id: string }> }) {
   // Next.js 14+ migration: unwrap params if it's a Promise
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const actualParams =
@@ -42,7 +41,7 @@ function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id:
   return (
     <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
-      <main className='container mx-auto px-4 pt-20 md:pt-32 min-h-screen'>
+      <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
         <div className='float-right'>
           <Link href='/projects'>
             <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
@@ -90,17 +89,8 @@ function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id:
               </Link>
             </div>
           </div>
-        </article>
-      </main>
+        </article>      </main>
       <Footer />
     </div>
-  )
-}
-
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  return (
-    <LanguageProvider>
-      <ProjectPageContent params={params} />
-    </LanguageProvider>
   )
 }
