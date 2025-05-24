@@ -12,8 +12,18 @@ export default function Footer() {
     <footer className='border-t bg-card'>
       <div className='container mx-auto px-4 py-12'>
         <div className='flex flex-row justify-between gap-2'>
+          {' '}
           <div className='flex items-center order-1'>
-            <Image src='/logo.svg' alt='Logo' layout='intrinsic' width={200} height={100} />
+            <Image
+              src='/logo.svg'
+              alt='Logo'
+              width={200}
+              height={100}
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }}
+            />
           </div>
           <div className='hidden md:flex items-center text-sm text-muted-foreground order-3 md:order-2 min-w-80'>
             © {currentYear} {t('footer.rights')}

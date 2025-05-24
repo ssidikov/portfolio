@@ -81,7 +81,6 @@ export default function Prices() {
         <h3 className='text-3xl font-bold mb-4'>{t('prices.subtitle')}</h3>
         <p className='text-muted-foreground max-w-2xl mb-12'>{t('prices.description')}</p>
       </AnimatedSection>
-
       <div className='grid md:grid-cols-3 gap-8'>
         {pricingTiers.map((tier, index) => (
           <AnimatedSection key={index}>
@@ -96,7 +95,6 @@ export default function Prices() {
                 <p className='text-xl font-semibold mb-4 gradient-text'>{tier.price}</p>
                 <p className='text-muted-foreground'>{tier.description}</p>
               </div>
-
               <div className='mt-2 mb-8 flex-grow'>
                 <ul className='space-y-3'>
                   {tier.features.map((feature, i) => (
@@ -106,7 +104,8 @@ export default function Prices() {
                     </li>
                   ))}
                 </ul>
-              </div>              <button
+              </div>{' '}
+              <button
                 onClick={() => handleTariffSelect(tier.name)}
                 className={`w-full py-3 rounded-md font-medium transition-colors ${
                   tier.highlighted
@@ -118,9 +117,10 @@ export default function Prices() {
             </div>
           </AnimatedSection>
         ))}
-      </div>      <AnimatedSection className='mt-16 text-center'>
+      </div>{' '}
+      <AnimatedSection className='mt-16 text-center'>
         <p className='text-lg mb-6'>{t('prices.custom')}</p>
-        <button 
+        <button
           onClick={() => handleTariffSelect('')}
           className='px-6 py-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors'>
           {t('prices.quote')}

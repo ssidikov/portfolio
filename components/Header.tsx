@@ -31,13 +31,18 @@ export default function Header() {
       <div className='container mx-auto px-4 py-2 flex items-center justify-between'>
         {/* Logo */}
         <Link href='/' className='flex items-center gap-2 z-50'>
+          {' '}
           <Image
             src='/logo.svg'
             alt='Logo'
             width={200}
             height={100}
             priority
-            className='w-auto h-10 md:h-14'
+            className='w-auto max-w-48 h-10 md:h-14'
+            style={{
+              width: 'auto',
+              height: 'auto',
+            }}
           />
         </Link>
 

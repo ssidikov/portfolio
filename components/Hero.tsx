@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id='home'
-      className='py-20 md:pt-32 md:pb-0 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center'>
+      className='py-20 pt-32 md:pb-0 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center'>
       {/* Left part - text and CTA*/}
       <AnimatedSection className='space-y-8'>
         <h1 className='text-4xl xl:text-6xl font-extrabold leading-tight tracking-tight'>
@@ -22,12 +22,17 @@ export default function Hero() {
         </h1>
         <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
           <div className='relative aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>
+            {' '}
             <Image
               src='/Sardorbek-Sidikov.png'
               alt='Hero image'
               width={500}
               height={500}
               className='object-cover w-full max-h-screen'
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }}
             />
           </div>
         </div>
