@@ -51,7 +51,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
         </div>
         {!showAllProjects && (
           <Link href='/projects'>
-            <button className='px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+            <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
               {t('portfolio.viewAll')}
             </button>
           </Link>
