@@ -42,13 +42,15 @@ function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id:
   return (
     <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
-      <main className='container mx-auto px-4 pt-32 pb-12 min-h-screen'>
-        <Link href='/projects'>
-          <button className='px-4 py-2 text-sm border mb-10 p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
-            ← {t('portfolio.viewAll')}
-          </button>
-        </Link>
-        <div className='grid md:grid-cols-2 gap-12'>
+      <main className='container mx-auto px-4 py-16 md:pt-32 pb-12 min-h-screen'>
+        <div className='float-right'>
+          <Link href='/projects'>
+            <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
+              ← {t('portfolio.viewAll')}
+            </button>
+          </Link>
+        </div>
+        <article className='grid md:grid-cols-2 gap-12 py-10 md:py-20 w-full'>
           <div className='relative h-[400px] rounded-xl overflow-hidden'>
             <Image
               src={localizedProject.image || '/placeholder.svg'}
@@ -88,7 +90,7 @@ function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id:
               </Link>
             </div>
           </div>
-        </div>
+        </article>
       </main>
       <Footer />
     </div>

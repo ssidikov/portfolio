@@ -352,7 +352,7 @@ const translations: Record<Language, TranslationMap> = {
     'prices.tier3.feature2': 'Стратегическая структура и контент',
     'prices.tier3.feature3': 'Продвинутая SEO-оптимизация',
     'prices.tier3.feature4': 'Максимальная производительность сайта',
-    'prices.tier3.feature5': 'Полная редактируемость через Sanity CMS',
+    'prices.tier3.feature5': 'Полная редактируемость через CMS',
     'prices.tier3.feature6': 'Блог, портфолио или лендинги включены',
     'prices.tier3.feature7': 'Готовность к рекламе и продвижению',
     'prices.tier3.feature8': 'Техническая поддержка 3 месяца',
