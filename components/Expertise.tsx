@@ -29,7 +29,13 @@ export default function Expertise() {
   )
 }
 
-function Card({ item, t }: { item: { titleKey: string; descriptionKey: string; icon: string }; t: (key: string) => string }) {
+function Card({
+  item,
+  t,
+}: {
+  item: { titleKey: string; descriptionKey: string; icon: string }
+  t: (key: string) => string
+}) {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -43,7 +49,7 @@ function Card({ item, t }: { item: { titleKey: string; descriptionKey: string; i
 
   return (
     <div
-      className='group relative rounded-xl border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900 p-6 transition-shadow'
+      className='group relative flex flex-col h-full rounded-xl border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-900 p-6 transition-shadow min-h-[190px] md:min-h-[200px]'
       onMouseMove={handleMouseMove}>
       <motion.div
         className='pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100'
@@ -60,7 +66,9 @@ function Card({ item, t }: { item: { titleKey: string; descriptionKey: string; i
           className='object-cover w-10 h-10 dark:invert'
         />
         <h4 className='font-semibold text-gray-900 dark:text-white'>{t(item.titleKey)}</h4>
-        <p className='text-sm text-gray-600 dark:text-gray-300 max-w-md'>{t(item.descriptionKey)}</p>
+        <p className='text-sm text-gray-600 dark:text-gray-300 max-w-md'>
+          {t(item.descriptionKey)}
+        </p>
       </div>
     </div>
   )
