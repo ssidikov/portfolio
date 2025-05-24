@@ -5,24 +5,29 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DarkModeToggle } from './ui/DarkModeToggle'
 import { motion, AnimatePresence } from 'framer-motion'
+import LanguageSelector from './LanguageSelector'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { t } = useLanguage()
 
-  // Animation for Burger-Menu
   const menuVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
   }
 
-  // animation for menu elements
   const itemVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
   }
 
   return (
-    <header className='fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-background-100'>
+    <header className='fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--background)/0.0)] backdrop-blur-md border-b border-[hsl(var(--border))]'>
       <div className='container mx-auto px-4 py-2 flex items-center justify-between'>
         {/* Logo */}
         <Link href='/' className='flex items-center gap-2 z-50'>
@@ -32,16 +37,20 @@ export default function Header() {
             width={200}
             height={100}
             priority
-            className='w-auto h-10 md:h-14' // Adaptive height of the logo
+            className='w-auto h-10 md:h-14'
           />
         </Link>
 
-        {/* Mobile menu and bourgeon button */}
+        {/* Mobile: language, theme, burger */}
         <div className='flex items-center md:hidden'>
+          <LanguageSelector />
+          <span className='w-2' />
           <DarkModeToggle />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className='flex items-center justify-center w-10 h-10 rounded-md focus:outline-none focus:ring-2'
+            className={`flex items-center justify-center w-10 h-10 rounded-md focus:outline-none focus:ring-2 transition-colors bg-[hsl(var(--background)/0.7)] backdrop-blur-md border border-[hsl(var(--border))] ${
+              menuOpen ? 'opacity-50' : 'opacity-50 hover:opacity-100'
+            }`}
             aria-label='Toggle menu'>
             <motion.svg
               className='w-6 h-6'
@@ -65,47 +74,53 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Navigation for desktops */}
+        {/* Desktop nav */}
         <nav className='hidden md:flex items-center gap-6'>
           <Link
             href='/#home'
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'>
-            Home
+            {t('nav.home')}
           </Link>
           <Link
             href='/#portfolio'
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'>
-            Portfolio
+            {t('nav.portfolio')}
           </Link>
           <Link
             href='/#about'
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'>
-            About me
+            {t('nav.about')}
+          </Link>
+          <Link
+            href='/#about'
+            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'>
+            {t('nav.prices')}
           </Link>
         </nav>
 
-        {/* Button "Contact Me" and DarkModetoggle for desktop */}
+        {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-4'>
           <Link href='/#contact'>
             <button className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
-              Contact Me
+              {t('nav.contact')}
             </button>
           </Link>
+          <LanguageSelector />
           <DarkModeToggle />
         </div>
       </div>
 
-      {/* Mobile menu (opens when you press the burger) */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className='md:hidden bg-background/95 backdrop-blur-md border-t border-background-100'
+            className='md:hidden w-full backdrop-blur-3xl border-b border-[hsl(var(--border))]'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}>
             <motion.nav
-              className='flex flex-col items-start gap-4 py-4 px-4'
+              className='flex flex-col items-start gap-4 py-6 px-4 w-full'
               variants={menuVariants}
               initial='hidden'
               animate='visible'>
@@ -114,7 +129,7 @@ export default function Header() {
                   href='/#home'
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
                   onClick={() => setMenuOpen(false)}>
-                  Home
+                  {t('nav.home')}
                 </Link>
               </motion.div>
               <motion.div variants={itemVariants}>
@@ -122,7 +137,7 @@ export default function Header() {
                   href='/#portfolio'
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
                   onClick={() => setMenuOpen(false)}>
-                  Portfolio
+                  {t('nav.portfolio')}
                 </Link>
               </motion.div>
               <motion.div variants={itemVariants}>
@@ -130,13 +145,13 @@ export default function Header() {
                   href='/#about'
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500'
                   onClick={() => setMenuOpen(false)}>
-                  About me
+                  {t('nav.about')}
                 </Link>
               </motion.div>
               <motion.div variants={itemVariants} className='w-full'>
                 <Link href='/#contact' className='w-full' onClick={() => setMenuOpen(false)}>
                   <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
-                    Contact Me
+                    {t('nav.contact')}
                   </button>
                 </Link>
               </motion.div>

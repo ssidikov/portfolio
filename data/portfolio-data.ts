@@ -153,23 +153,23 @@ export const projects = [
 
 export const expertiseItems = [
   {
-    title: 'Web development',
-    description: 'Building responsive and high-performance websites using modern technologies',
+    titleKey: 'expertise.item1.title',
+    descriptionKey: 'expertise.item1.description',
     icon: '/logo/code.svg',
   },
   {
-    title: 'UI & UX Design',
-    description: 'Designing interfaces focused on usability and visual harmony',
+    titleKey: 'expertise.item2.title',
+    descriptionKey: 'expertise.item2.description',
     icon: '/logo/uxui.svg',
   },
   {
-    title: 'Branding & Logo',
-    description: 'Creating unique logos and visual identities to strengthen brand',
+    titleKey: 'expertise.item3.title',
+    descriptionKey: 'expertise.item3.description',
     icon: '/logo/logo.svg',
   },
   {
-    title: 'API Integration',
-    description: 'Developing seamless connections between user interfaces and backend APIs',
+    titleKey: 'expertise.item4.title',
+    descriptionKey: 'expertise.item4.description',
     icon: '/logo/api.svg',
   },
 ]

@@ -4,22 +4,32 @@ import React, { MouseEvent as ReactMouseEvent } from 'react'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import Image from 'next/image'
 import { expertiseItems } from '@/data/portfolio-data'
+import AnimatedSection from './AnimatedSection'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Expertise() {
+  const { t } = useLanguage()
+
   return (
     <section className='container mx-auto px-4 md:py-20 bg-card'>
-      <h2 className='text-2xl font-semibold mb-2 text-primary'>My Skills</h2>
-      <h3 className='text-3xl font-bold mb-12'>My Expertise</h3>
+      <AnimatedSection>
+        <h2 className='text-2xl font-semibold mb-2 text-primary gradient-text'>
+          {t('expertise.title')}
+        </h2>
+        <h3 className='text-3xl font-bold mb-12'>{t('expertise.subtitle')}</h3>
+      </AnimatedSection>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
         {expertiseItems.map((item, index) => (
-          <Card key={index} item={item} />
+          <AnimatedSection key={index}>
+            <Card key={index} item={item} t={t} />
+          </AnimatedSection>
         ))}
       </div>
     </section>
   )
 }
 
-function Card({ item }: { item: { icon: string; title: string; description: string } }) {
+function Card({ item, t }: { item: { titleKey: string; descriptionKey: string; icon: string }; t: (key: string) => string }) {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -42,15 +52,15 @@ function Card({ item }: { item: { icon: string; title: string; description: stri
       <div className='space-y-4'>
         <Image
           src={item.icon}
-          alt={item.title}
+          alt={t(item.titleKey)}
           priority
           sizes='(max-width: 768px) 100px, 100px'
           width={100}
           height={100}
           className='object-cover w-10 h-10 dark:invert'
         />
-        <h4 className='font-semibold text-gray-900 dark:text-white'>{item.title}</h4>
-        <p className='text-sm text-gray-600 dark:text-gray-300 max-w-md'>{item.description}</p>
+        <h4 className='font-semibold text-gray-900 dark:text-white'>{t(item.titleKey)}</h4>
+        <p className='text-sm text-gray-600 dark:text-gray-300 max-w-md'>{t(item.descriptionKey)}</p>
       </div>
     </div>
   )

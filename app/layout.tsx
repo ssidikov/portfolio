@@ -4,11 +4,12 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { LanguageProvider } from '@/context/LanguageContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sardorbek Sidikov - Portfolio',
+  title: 'Portfolio Website',
   description: 'Modern web application portfolio',
   icons: {
     icon: '/favicon.png',
@@ -17,14 +18,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en' suppressHydrationWarning className='scroll-smooth'>
+    <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
+        =
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

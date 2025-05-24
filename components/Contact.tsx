@@ -1,13 +1,19 @@
+'use client'
+
+import type React from 'react'
+
 import { useState, useRef } from 'react'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import Popup from './Popup'
-import Image from 'next/image'
+import AnimatedSection from './AnimatedSection'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Contact() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const formRef = useRef<HTMLFormElement>(null)
+  const [error, setError] = useState<string | null>(null) // fixed type error
+  const formRef = useRef<HTMLFormElement>(null) // fixed type error
+  const { t } = useLanguage()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -26,23 +32,23 @@ export default function Contact() {
       })
 
       if (response.ok) {
-        setIsPopupOpen(true) // show the plug when successful sending
-        formRef.current?.reset() // Clean the form
-        setTimeout(() => setIsPopupOpen(false), 5000) // Close the plug after 5 seconds
+        setIsPopupOpen(true)
+        formRef.current?.reset()
+        setTimeout(() => setIsPopupOpen(false), 5000)
       } else {
-        throw new Error('Failed to send message') // error processing
+        throw new Error('Failed to send message')
       }
     } catch (err) {
-      setError('An error occurred while sending the message. Please try again.') // Set the error
+      setError('An error occurred while sending the message. Please try again.')
     } finally {
-      setIsLoading(false) // We finish the load
+      setIsLoading(false)
     }
   }
 
   return (
     <section id='contact' className='relative isolate bg-white dark:bg-gray-900'>
       <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
-        <div className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
+        <AnimatedSection className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
           <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg'>
             <div className='absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 dark:bg-transparent ring-1 ring-gray-900/10 dark:ring-white/5 lg:w-1/2'>
               <svg
@@ -91,19 +97,17 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <div className='flex justify-between items-center'>
-              <div>
-                <h2 className='text-lg text-primary mb-2'>Get in Touch</h2>
-                <h3 className='text-3xl font-bold mb-4 text-card-foreground'>Contact me</h3>
-              </div>
-              <Image src='/images/contact.png' alt='Contact me' width={100} height={100} />
-            </div>
+            <h2 className='text-lg text-primary mb-2'>{t('contact.subtitle')}</h2>
+            <h3 className='text-3xl font-bold mb-4 text-card-foreground'>{t('contact.title')}</h3>
             <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300'>
-              If you’re looking for a Web Developer who is : <br />→ Proficient in JavaScript,
-              React, Next.js, and modern web technologies. <br /> → Committed to clean code,
-              responsive design, and accessibility. <br />→ A team player with strong
-              problem-solving and communication skills. <br />
-              …then let’s connect! I’d love to hear about your projects and how I can contribute.
+              {t('contact.description')
+                .split('\n')
+                .map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
             </p>
             <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-300'>
               <div className='flex gap-x-4'>
@@ -111,7 +115,7 @@ export default function Contact() {
                   <span className='sr-only'>Address</span>
                   <BuildingOffice2Icon aria-hidden='true' className='h-7 w-6 text-gray-400' />
                 </dt>
-                <dd>Paris, France</dd>
+                <dd>{t('contact.address')}</dd>
               </div>
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
@@ -139,110 +143,112 @@ export default function Contact() {
               </div>
             </dl>
           </div>
-        </div>
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
-          <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
-            <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-              <div>
-                <label
-                  htmlFor='first-name'
-                  className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                  First name
-                </label>
-                <div className='mt-2.5'>
-                  <input
-                    placeholder='Enter your first name'
-                    id='first-name'
-                    name='first-name'
-                    type='text'
-                    autoComplete='given-name'
-                    className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10 sm:text-sm sm:leading-6'
-                  />
+        </AnimatedSection>
+        <AnimatedSection>
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
+            <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
+              <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
+                <div>
+                  <label
+                    htmlFor='first-name'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('contact.firstName')}
+                  </label>
+                  <div className='mt-2.5'>
+                    <input
+                      placeholder={t('contact.placeholder.firstName')}
+                      id='first-name'
+                      name='first-name'
+                      type='text'
+                      autoComplete='given-name'
+                      className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10 sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor='last-name'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('contact.lastName')}
+                  </label>
+                  <div className='mt-2.5'>
+                    <input
+                      id='last-name'
+                      name='last-name'
+                      placeholder={t('contact.placeholder.lastName')}
+                      type='text'
+                      autoComplete='family-name'
+                      className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10 sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                </div>
+                <div className='sm:col-span-2'>
+                  <label
+                    htmlFor='email'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('contact.email')}
+                  </label>
+                  <div className='mt-2.5'>
+                    <input
+                      placeholder={t('contact.placeholder.email')}
+                      id='email'
+                      name='email'
+                      type='email'
+                      autoComplete='email'
+                      className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 dark:text-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-white/10 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+                    />
+                  </div>
+                </div>
+                <div className='sm:col-span-2'>
+                  <label
+                    htmlFor='phone-number'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('contact.phone')}
+                  </label>
+                  <div className='mt-2.5'>
+                    <input
+                      placeholder={t('contact.placeholder.phone')}
+                      id='phone-number'
+                      name='phone-number'
+                      type='tel'
+                      autoComplete='tel'
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10'
+                    />
+                  </div>
+                </div>
+                <div className='sm:col-span-2'>
+                  <label
+                    htmlFor='message'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('contact.message')}
+                  </label>
+                  <div className='mt-2.5'>
+                    <textarea
+                      placeholder={t('contact.placeholder.message')}
+                      id='message'
+                      name='message'
+                      rows={4}
+                      className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10'
+                      defaultValue={''}
+                    />
+                  </div>
                 </div>
               </div>
-              <div>
-                <label
-                  htmlFor='last-name'
-                  className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                  Last name
-                </label>
-                <div className='mt-2.5'>
-                  <input
-                    id='last-name'
-                    name='last-name'
-                    placeholder='Enter your last name'
-                    type='text'
-                    autoComplete='family-name'
-                    className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:ring-white/10   sm:text-sm sm:leading-6'
-                  />
-                </div>
+              <div className='mt-8 flex justify-end'>
+                <button
+                  type='submit'
+                  disabled={isLoading}
+                  className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed'>
+                  {isLoading ? t('contact.sending') : t('contact.send')}
+                </button>
               </div>
-              <div className='sm:col-span-2'>
-                <label
-                  htmlFor='email'
-                  className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                  Email
-                </label>
-                <div className='mt-2.5'>
-                  <input
-                    placeholder='Enter your email'
-                    id='email'
-                    name='email'
-                    type='email'
-                    autoComplete='email'
-                    className='block w-full rounded-md border-0 dark:bg-white/5 px-3.5 py-2  dark:text-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-white/10 placeholder:text-gray-400 focus:ring-2 focus:ring-inset   sm:text-sm sm:leading-6'
-                  />
-                </div>
-              </div>
-              <div className='sm:col-span-2'>
-                <label
-                  htmlFor='phone-number'
-                  className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                  Phone number
-                </label>
-                <div className='mt-2.5'>
-                  <input
-                    placeholder='Enter your phone number'
-                    id='phone-number'
-                    name='phone-number'
-                    type='tel'
-                    autoComplete='tel'
-                    className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10 '
-                  />
-                </div>
-              </div>
-              <div className='sm:col-span-2'>
-                <label
-                  htmlFor='message'
-                  className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
-                  Message
-                </label>
-                <div className='mt-2.5'>
-                  <textarea
-                    placeholder='Type your message...'
-                    id='message'
-                    name='message'
-                    rows={4}
-                    className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6 dark:bg-white/5 dark:text-white dark:ring-white/10'
-                    defaultValue={''}
-                  />
-                </div>
-              </div>
+              {error && <p className='mt-4 text-sm text-red-500 dark:text-red-400'>{error}</p>}
             </div>
-            <div className='mt-8 flex justify-end'>
-              <button
-                type='submit'
-                disabled={isLoading} // Disconnect the button when loading
-                className='rounded-md bg-primary px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed'>
-                {isLoading ? 'Sending...' : 'Send message'}
-              </button>
-            </div>
-            {error && <p className='mt-4 text-sm text-red-500 dark:text-red-400'>{error}</p>}
-          </div>
-        </form>
+          </form>
+        </AnimatedSection>
       </div>
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>

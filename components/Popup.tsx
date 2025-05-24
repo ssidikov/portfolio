@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react'
+'use client'
+
+import { useState, useEffect } from 'react'
 import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface PopupProps {
   isOpen: boolean
@@ -8,6 +11,7 @@ interface PopupProps {
 
 export default function Popup({ isOpen, onClose }: PopupProps) {
   const [show, setShow] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     if (isOpen) {
