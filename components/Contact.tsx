@@ -263,7 +263,8 @@ export default function Contact() {
                         formErrors.firstName
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
                           : 'ring-gray-300 focus:ring-primary'
-                      }`}                    />
+                      }`}
+                    />
                     <AnimatePresence>
                       {formErrors.firstName && (
                         <motion.p
@@ -321,7 +322,8 @@ export default function Contact() {
                         formErrors.email
                           ? 'ring-red-300 focus:ring-red-500 dark:ring-red-500'
                           : 'ring-gray-300 dark:ring-white/10 focus:ring-primary'
-                      }`}                    />
+                      }`}
+                    />
                     <AnimatePresence>
                       {formErrors.email && (
                         <motion.p

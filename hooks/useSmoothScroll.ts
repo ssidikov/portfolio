@@ -2,7 +2,8 @@
 
 import { useCallback } from 'react'
 
-export const useSmoothScroll = () => {  const scrollToSection = useCallback((sectionId: string) => {
+export const useSmoothScroll = () => {
+  const scrollToSection = useCallback((sectionId: string) => {
     // Функция для выполнения прокрутки
     const performScroll = () => {
       const element = document.getElementById(sectionId.replace('#', ''))
@@ -10,13 +11,13 @@ export const useSmoothScroll = () => {  const scrollToSection = useCallback((sec
         // Адаптивная высота хедера в зависимости от размера экрана
         const isMobile = window.innerWidth < 768
         const headerHeight = isMobile ? 70 : 100
-        
+
         const elementPosition = element.offsetTop
         const offsetPosition = elementPosition - headerHeight
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
         return true
       }
@@ -37,7 +38,7 @@ export const useSmoothScroll = () => {  const scrollToSection = useCallback((sec
 
     observer.observe(document.body, {
       childList: true,
-      subtree: true
+      subtree: true,
     })
 
     // Дополнительная проверка через интервалы для надежности
@@ -61,7 +62,7 @@ export const useSmoothScroll = () => {  const scrollToSection = useCallback((sec
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }, [])
 

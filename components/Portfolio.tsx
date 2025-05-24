@@ -57,10 +57,11 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   return (
     <section id='portfolio' className='container mx-auto px-4'>
       <AnimatedSection className='flex justify-between mb-12'>
+        {' '}
         <div>
           <h2 className='text-lg text-primary mb-2'>{title || t('portfolio.title')}</h2>
           <h3 className='text-3xl font-bold'>{subtitle || t('portfolio.subtitle')}</h3>
-        </div>{' '}
+        </div>
         {showAllProjects && (
           <button
             onClick={handleHomeClick}
@@ -72,9 +73,9 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           <Link href='/projects'>
             <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
               {t('portfolio.viewAll')}
-            </button>
+            </button>{' '}
           </Link>
-        )}{' '}
+        )}
       </AnimatedSection>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
         {localizedProjects
@@ -94,10 +95,10 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                   <h4 className='font-semibold mb-2 text-card-foreground'>{project.title}</h4>
                   <p className='text-sm text-muted-foreground min-h-20 flex-1'>
                     {project.description}
-                  </p>
+                  </p>{' '}
                   <div className='mt-4'>
                     <Link href={`/projects/${project.id}`}>
-                      <button className='pt-2 pb-2 text-primary hover:text-indigo-500 text-sm'>
+                      <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
                         {t('portfolio.viewDetails')} →
                       </button>
                     </Link>

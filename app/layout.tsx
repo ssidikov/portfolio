@@ -21,15 +21,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={inter.className}>        <ThemeProvider
+      <body className={inter.className}>
+        {' '}
+        <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
-          disableTransitionOnChange>          <LanguageProvider>
+          disableTransitionOnChange>
+          {' '}
+          <LanguageProvider>
             <TariffProvider>
-              <ClientLayout>
-                {children}
-              </ClientLayout>
+              <ClientLayout>{children}</ClientLayout>
             </TariffProvider>
           </LanguageProvider>
           <Analytics />

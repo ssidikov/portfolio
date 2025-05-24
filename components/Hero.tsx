@@ -26,7 +26,8 @@ export default function Hero() {
           <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
           <span className='gradient-text'> {t('hero.title3')}</span>{' '}
           <span className='text-gray-900 dark:text-white'>{t('hero.title4')}</span>
-        </h1>        <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
+        </h1>{' '}
+        <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
           <div className='relative aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>
             <Image
               src='/Sardorbek-Sidikov.png'
@@ -41,12 +42,12 @@ export default function Hero() {
             />
           </div>
         </div>
-
         <h2 className='sm:text-lg md:text-xl text-muted-foreground max-w-xl'>
           {t('hero.description')}
-        </h2>        <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-          <a 
-            href='/#contact' 
+        </h2>{' '}
+        <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
+          <a
+            href='/#contact'
             className='w-1/2 md:w-48'
             onClick={(e) => handleNavClick(e, 'contact')}>
             <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
@@ -54,8 +55,8 @@ export default function Hero() {
             </button>
           </a>
 
-          <a 
-            href='/#portfolio' 
+          <a
+            href='/#portfolio'
             className='w-1/2 md:w-48'
             onClick={(e) => handleNavClick(e, 'portfolio')}>
             <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>

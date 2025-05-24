@@ -10,7 +10,9 @@ export default function Footer() {
 
   return (
     <footer className='border-t bg-card'>
-      <div className='container mx-auto px-4 py-12'>        <div className='flex flex-row justify-between gap-2'>
+      <div className='container mx-auto px-4 py-12'>
+        {' '}
+        <div className='flex flex-row justify-between gap-2'>
           <div className='flex items-center order-1'>
             <Image
               src='/logo.svg'

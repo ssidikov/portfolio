@@ -2,24 +2,46 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { projects } from '@/data/portfolio-data'
 import { useLanguage } from '@/context/LanguageContext'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 const getProjectById = (id: string) => {
   return projects.find((p) => p.id === id) || null
 }
 
-export default function ProjectPage({ params }: { params: { id: string } | Promise<{ id: string }> }) {
+export default function ProjectPage({
+  params,
+}: {
+  params: { id: string } | Promise<{ id: string }>
+}) {
   // Next.js 14+ migration: unwrap params if it's a Promise
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const actualParams =
     typeof (params as any).then === 'function'
       ? React.use(params as Promise<{ id: string }>)
       : (params as { id: string })
+
   const { t, language } = useLanguage()
+  const router = useRouter()
+  const { scrollToSection } = useSmoothScroll()
   const project = getProjectById(actualParams.id)
+
+  const handleBackClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    router.push('/projects')
+  }
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    router.push('/')
+    setTimeout(() => {
+      scrollToSection('contact')
+    }, 150)
+  }
 
   if (!project) {
     return <div className='text-center py-12'>{t('project.notFound')}</div>
@@ -42,12 +64,13 @@ export default function ProjectPage({ params }: { params: { id: string } | Promi
     <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
       <Header />
       <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
+        {' '}
         <div className='float-right'>
-          <Link href='/projects'>
-            <button className='px-4 py-2 text-sm border p-2 rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
-              ← {t('portfolio.viewAll')}
-            </button>
-          </Link>
+          <button
+            onClick={handleBackClick}
+            className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
+            ← {t('portfolio.viewAll')}
+          </button>
         </div>
         <article className='grid md:grid-cols-2 gap-12 py-10 md:py-20 w-full'>
           <div className='relative h-[400px] rounded-xl overflow-hidden'>
@@ -74,22 +97,27 @@ export default function ProjectPage({ params }: { params: { id: string } | Promi
                   </span>
                 ))}
               </div>
-            </div>
+            </div>{' '}
             <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-              <Link href='/#contact' className='w-1/2 md:w-48'>
+              <a href='/#contact' onClick={handleContactClick} className='w-1/2 md:w-48'>
                 <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
                   {t('hero.contact')}
                 </button>
-              </Link>
+              </a>
 
-              <Link href={localizedProject.link} className='w-1/2 md:w-48'>
+              <a
+                href={localizedProject.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='w-1/2 md:w-48'>
                 <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>
                   {t('portfolio.viewProject')}
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
-        </article>      </main>
+        </article>{' '}
+      </main>
       <Footer />
     </div>
   )

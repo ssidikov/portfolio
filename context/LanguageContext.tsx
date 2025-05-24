@@ -446,10 +446,10 @@ const detectBrowserLanguage = (): Language => {
   if (typeof window !== 'undefined' && navigator) {
     // Получаем язык браузера (например: 'fr', 'en-US', 'ru-RU')
     const browserLang = navigator.language.toLowerCase().split('-')[0]
-    
+
     // Также проверяем список всех языков браузера
     const browserLanguages = navigator.languages || [navigator.language]
-    
+
     // Проверяем каждый язык из списка браузера
     for (const lang of browserLanguages) {
       const langCode = lang.toLowerCase().split('-')[0]
@@ -457,11 +457,11 @@ const detectBrowserLanguage = (): Language => {
       if (langCode === 'ru') return 'ru'
       if (langCode === 'en') return 'en'
     }
-    
+
     // Если не найден точный матч, используем первый язык
     if (browserLang === 'fr') return 'fr'
     if (browserLang === 'ru') return 'ru'
-    
+
     // По умолчанию используем английский для всех остальных языков
     return 'en'
   }
@@ -489,7 +489,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   useEffect(() => {
     // Сначала проверяем сохраненный язык в localStorage
     const savedLanguage = localStorage.getItem('language') as Language
-    
+
     if (savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)) {
       // Если есть сохраненный язык, используем его
       setLanguage(savedLanguage)
@@ -499,7 +499,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
       setLanguage(browserLanguage)
       localStorage.setItem('language', browserLanguage)
     }
-    
+
     setIsInitialized(true)
   }, [])
 

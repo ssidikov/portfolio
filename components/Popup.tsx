@@ -20,9 +20,9 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ 
-              duration: 0.2, 
-              ease: [0.25, 0.1, 0.25, 1] 
+            transition={{
+              duration: 0.2,
+              ease: [0.25, 0.1, 0.25, 1],
             }}
             className='max-w-sm w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden'>
             <div className='p-4'>

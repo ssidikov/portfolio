@@ -10,18 +10,18 @@ interface AnimatedSectionProps {
   direction?: 'up' | 'down' | 'left' | 'right'
 }
 
-export default function AnimatedSection({ 
-  children, 
-  className = '', 
+export default function AnimatedSection({
+  children,
+  className = '',
   delay = 0,
   duration = 0.6,
-  direction = 'up'
+  direction = 'up',
 }: AnimatedSectionProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { 
-    once: true, 
+  const isInView = useInView(ref, {
+    once: true,
     amount: 0.1,
-    margin: "0px 0px -50px 0px"
+    margin: '0px 0px -50px 0px',
   })
 
   const getInitialPosition = () => {
@@ -57,11 +57,11 @@ export default function AnimatedSection({
       ref={ref}
       initial={getInitialPosition()}
       animate={isInView ? getAnimatePosition() : getInitialPosition()}
-      transition={{ 
+      transition={{
         duration,
         delay,
         ease: [0.25, 0.1, 0.25, 1],
-        type: "tween"
+        type: 'tween',
       }}
       className={className}>
       {children}
