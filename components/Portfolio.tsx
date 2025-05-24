@@ -26,16 +26,16 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
     return projects.map((project) => ({
       ...project,
       title:
-        t(`project.${project.id}.title`) !== `project.${project.id}.title`
-          ? t(`project.${project.id}.title`)
+        typeof project.title === 'object'
+          ? project.title[language] || project.title.en
           : project.title,
       description:
-        t(`project.${project.id}.description`) !== `project.${project.id}.description`
-          ? t(`project.${project.id}.description`)
+        typeof project.description === 'object'
+          ? project.description[language] || project.description.en
           : project.description,
       longDescription:
-        t(`project.${project.id}.longDescription`) !== `project.${project.id}.longDescription`
-          ? t(`project.${project.id}.longDescription`)
+        typeof project.longDescription === 'object'
+          ? project.longDescription[language] || project.longDescription.en
           : project.longDescription,
     }))
   }
@@ -62,7 +62,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           .slice(0, showAllProjects ? localizedProjects.length : visibleProjects)
           .map((project) => (
             <AnimatedSection key={project.id}>
-              <div className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded'>
+              <div className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded flex flex-col h-full min-h-[420px]'>
                 <div className='relative h-48'>
                   <Image
                     src={project.image || '/placeholder.svg'}
@@ -71,14 +71,18 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
                     className='object-cover object-top'
                   />
                 </div>
-                <div className='p-6'>
+                <div className='p-6 flex flex-col flex-1'>
                   <h4 className='font-semibold mb-2 text-card-foreground'>{project.title}</h4>
-                  <p className='text-sm text-muted-foreground min-h-20'>{project.description}</p>
-                  <Link href={`/projects/${project.id}`}>
-                    <button className='pt-2 pb-2 text-primary hover:text-indigo-500 text-sm'>
-                      {t('portfolio.viewDetails')} →
-                    </button>
-                  </Link>
+                  <p className='text-sm text-muted-foreground min-h-20 flex-1'>
+                    {project.description}
+                  </p>
+                  <div className='mt-4'>
+                    <Link href={`/projects/${project.id}`}>
+                      <button className='pt-2 pb-2 text-primary hover:text-indigo-500 text-sm'>
+                        {t('portfolio.viewDetails')} →
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -96,3 +100,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
     </section>
   )
 }
+
+// When passing project to <Link href={`/projects/${project.id}`}> or to a details page,
+// make sure the details page also uses the same logic to localize fields based on language.
+// If you use getStaticProps/getServerSideProps or fetch project by id, localize fields there as well.

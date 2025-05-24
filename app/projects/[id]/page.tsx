@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header'
@@ -11,9 +12,15 @@ const getProjectById = (id: string) => {
   return projects.find((p) => p.id === id) || null
 }
 
-function ProjectPageContent({ params }: { params: { id: string } }) {
-  const { t } = useLanguage()
-  const project = getProjectById(params.id)
+function ProjectPageContent({ params }: { params: { id: string } | Promise<{ id: string }> }) {
+  // Next.js 14+ migration: unwrap params if it's a Promise
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const actualParams =
+    typeof (params as any).then === 'function'
+      ? React.use(params as Promise<{ id: string }>)
+      : (params as { id: string })
+  const { t, language } = useLanguage()
+  const project = getProjectById(actualParams.id)
 
   if (!project) {
     return <div className='text-center py-12'>{t('project.notFound')}</div>
@@ -23,12 +30,12 @@ function ProjectPageContent({ params }: { params: { id: string } }) {
   const localizedProject = {
     ...project,
     title:
-      t(`project.${project.id}.title`) !== `project.${project.id}.title`
-        ? t(`project.${project.id}.title`)
+      typeof project.title === 'object'
+        ? project.title[language] || project.title.en
         : project.title,
     longDescription:
-      t(`project.${project.id}.longDescription`) !== `project.${project.id}.longDescription`
-        ? t(`project.${project.id}.longDescription`)
+      typeof project.longDescription === 'object'
+        ? project.longDescription[language] || project.longDescription.en
         : project.longDescription,
   }
 
@@ -67,13 +74,19 @@ function ProjectPageContent({ params }: { params: { id: string } }) {
                 ))}
               </div>
             </div>
-            <a
-              href={localizedProject.link}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-block px-5 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-300 text-sm max-w-32 text-center'>
-              {t('portfolio.viewProject')}
-            </a>
+            <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
+              <Link href='/#contact'>
+                <button className='px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors w-48 shadow-lg'>
+                  {t('hero.contact')}
+                </button>
+              </Link>
+
+              <Link href={localizedProject.link}>
+                <button className='px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors w-48'>
+                  {t('portfolio.viewProject')}
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
