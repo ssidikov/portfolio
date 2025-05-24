@@ -441,21 +441,32 @@ const translations: Record<Language, TranslationMap> = {
   },
 }
 
-// Fonction pour détecter la langue du navigateur et la mapper à nos langues disponibles
+// Функция для определения языка браузера и сопоставления с доступными языками
 const detectBrowserLanguage = (): Language => {
   if (typeof window !== 'undefined' && navigator) {
-    // Obtenir la langue du navigateur (ex: 'fr', 'en-US', 'ru-RU')
+    // Получаем язык браузера (например: 'fr', 'en-US', 'ru-RU')
     const browserLang = navigator.language.toLowerCase().split('-')[0]
-
-    // Mapper la langue du navigateur à nos langues disponibles
+    
+    // Также проверяем список всех языков браузера
+    const browserLanguages = navigator.languages || [navigator.language]
+    
+    // Проверяем каждый язык из списка браузера
+    for (const lang of browserLanguages) {
+      const langCode = lang.toLowerCase().split('-')[0]
+      if (langCode === 'fr') return 'fr'
+      if (langCode === 'ru') return 'ru'
+      if (langCode === 'en') return 'en'
+    }
+    
+    // Если не найден точный матч, используем первый язык
     if (browserLang === 'fr') return 'fr'
     if (browserLang === 'ru') return 'ru'
-
-    // Par défaut, utiliser l'anglais pour toutes les autres langues
+    
+    // По умолчанию используем английский для всех остальных языков
     return 'en'
   }
 
-  // Fallback si window/navigator n'est pas disponible (SSR)
+  // Fallback для SSR (серверный рендеринг)
   return 'fr'
 }
 
@@ -471,103 +482,37 @@ interface LanguageProviderProps {
   children: React.ReactNode
 }
 
-// export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-//   const [language, setLanguage] = useState<Language>('fr')
-//   const [isInitialized, setIsInitialized] = useState(false)
-
-//   useEffect(() => {
-//     // Vérifier d'abord si une langue est déjà enregistrée dans localStorage
-//     const savedLanguage = localStorage.getItem('language') as Language
-
-//     if (savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)) {
-//       setLanguage(savedLanguage)
-//     } else {
-//       // Si aucune langue n'est enregistrée, utiliser la langue du navigateur
-//       const browserLanguage = detectBrowserLanguage()
-//       setLanguage(browserLanguage)
-//       localStorage.setItem('language', browserLanguage)
-//     }
-
-//     setIsInitialized(true)
-//   }, [])
-
-//   const handleSetLanguage = (newLanguage: Language) => {
-//     setLanguage(newLanguage)
-//     localStorage.setItem('language', newLanguage)
-//   }
-
-//   const t = (key: string): string => {
-//     return translations[language][key] || key
-//   }
-
-//   // Attendre que la langue soit initialisée avant de rendre les enfants
-//   if (!isInitialized && typeof window !== 'undefined') {
-//     return null // ou un loader si nécessaire
-//   }
-
-//   return (
-//     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
-//       {children}
-//     </LanguageContext.Provider>
-//   )
-// }
-
-// export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-//   const [language, setLanguage] = useState<Language>(() => {
-//     if (typeof window !== 'undefined') {
-//       const savedLanguage = localStorage.getItem('language') as Language
-//       return savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)
-//         ? savedLanguage
-//         : detectBrowserLanguage()
-//     }
-//     return 'fr' // Fallback для SSR
-//   })
-
-//   useEffect(() => {
-//     localStorage.setItem('language', language)
-//   }, [language])
-
-//   const handleSetLanguage = (newLanguage: Language) => {
-//     setLanguage(newLanguage)
-//     localStorage.setItem('language', newLanguage)
-//   }
-
-//   const t = (key: string): string => {
-//     return translations[language]?.[key] || key
-//   }
-
-//   return (
-//     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
-//       {children}
-//     </LanguageContext.Provider>
-//   )
-// }
-
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [language, setLanguage] = useState<Language>('fr')
-  const [isClient, setIsClient] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
+    // Сначала проверяем сохраненный язык в localStorage
     const savedLanguage = localStorage.getItem('language') as Language
-    const lang =
-      savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)
-        ? savedLanguage
-        : detectBrowserLanguage()
-
-    setLanguage(lang)
-    localStorage.setItem('language', lang)
-    setIsClient(true)
+    
+    if (savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)) {
+      // Если есть сохраненный язык, используем его
+      setLanguage(savedLanguage)
+    } else {
+      // Если нет сохраненного языка, определяем язык браузера
+      const browserLanguage = detectBrowserLanguage()
+      setLanguage(browserLanguage)
+      localStorage.setItem('language', browserLanguage)
+    }
+    
+    setIsInitialized(true)
   }, [])
-
-  if (!isClient) return null // избежание mismatch
 
   const handleSetLanguage = (newLanguage: Language) => {
     setLanguage(newLanguage)
     localStorage.setItem('language', newLanguage)
   }
 
-  const t = (key: string): string => translations[language]?.[key] || key
+  const t = (key: string): string => {
+    return translations[language]?.[key] || key
+  }
 
+  // Показываем детей сразу, но с fallback языком до инициализации
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}

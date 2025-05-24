@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { TariffProvider } from '@/context/TariffContext'
+import ClientLayout from '@/components/ClientLayout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,10 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           attribute='class'
           defaultTheme='system'
           enableSystem
-          disableTransitionOnChange>
-          <LanguageProvider>
+          disableTransitionOnChange>          <LanguageProvider>
             <TariffProvider>
-              {children}
+              <ClientLayout>
+                {children}
+              </ClientLayout>
             </TariffProvider>
           </LanguageProvider>
           <Analytics />

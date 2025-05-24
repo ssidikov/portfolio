@@ -19,10 +19,8 @@ export default function Hero() {
           <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
           <span className='gradient-text'> {t('hero.title3')}</span>{' '}
           <span className='text-gray-900 dark:text-white'>{t('hero.title4')}</span>
-        </h1>
-        <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
+        </h1>        <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
           <div className='relative aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>
-            {' '}
             <Image
               src='/Sardorbek-Sidikov.png'
               alt='Hero image'
