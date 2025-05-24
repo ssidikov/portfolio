@@ -221,6 +221,64 @@ export default function Contact() {
                 </div>
                 <div className='sm:col-span-2'>
                   <label
+                    htmlFor='selected-tariff'
+                    className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
+                    {t('prices.title')}{' '}
+                    <span className='text-xs text-gray-400'>({t('prices.subtitle')})</span>
+                  </label>
+                  <div className='mt-2.5 relative'>
+                    <select
+                      id='selected-tariff'
+                      name='selected-tariff'
+                      className='block w-full rounded-md border-0 dark:bg-white/10 bg-white px-3.5 py-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-white/10 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:focus:ring-indigo-400 sm:text-sm sm:leading-6 transition-colors appearance-none pr-10'
+                      defaultValue=''
+                    >
+                      <option
+                        value=''
+                        disabled
+                        hidden
+                        className='bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 py-3 my-2 px-3'
+                        style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}
+                      >
+                        -- {t('prices.title')} --
+                      </option>
+                      <option
+                        value={t('prices.tier1.name')}
+                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
+                        style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}
+                      >
+                        {t('prices.tier1.name')}
+                      </option>
+                      <option
+                        value={t('prices.tier2.name')}
+                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
+                        style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}
+                      >
+                        {t('prices.tier2.name')}
+                      </option>
+                      <option
+                        value={t('prices.tier3.name')}
+                        className='bg-indigo-50 dark:bg-gray-900 text-gray-900 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 py-3 my-2 px-3'
+                        style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}
+                      >
+                        {t('prices.tier3.name')}
+                      </option>
+                    </select>
+                    <svg
+                      className='pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-300'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth='2'
+                      viewBox='0 0 24 24'>
+                      <path strokeLinecap='round' strokeLinejoin='round' d='M19 9l-7 7-7-7' />
+                    </svg>
+                  </div>
+                  <p className='mt-1 text-xs text-gray-400 dark:text-gray-500'>
+                    {t('prices.description')}
+                  </p>
+                </div>
+                <div className='sm:col-span-2'>
+                  <label
                     htmlFor='message'
                     className='block text-sm font-semibold leading-6 text-gray-900 dark:text-white'>
                     {t('contact.message')}

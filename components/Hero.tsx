@@ -37,14 +37,14 @@ export default function Hero() {
         </h2>
 
         <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-          <Link href='/#contact'>
-            <button className='px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors w-48 shadow-lg'>
+          <Link href='/#contact' className='w-1/2 md:w-48'>
+            <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
               {t('hero.contact')}
             </button>
           </Link>
 
-          <Link href='/#portfolio'>
-            <button className='px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors w-48'>
+          <Link href='/#portfolio' className='w-1/2 md:w-48'>
+            <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>
               {t('hero.viewWork')}
             </button>
           </Link>
