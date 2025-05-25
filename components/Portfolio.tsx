@@ -82,7 +82,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
           .slice(0, showAllProjects ? localizedProjects.length : visibleProjects)
           .map((project, index) => (
             <AnimatedSection key={project.id} delay={index * 0.1}>
-              <div className='overflow-hidden hover:shadow-md dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded flex flex-col h-full min-h-[420px] smooth-animation'>
+              <div className='overflow-hidden dark:hover:shadow-slate-900 space-y-4 bg-white/5 backdrop-blur-md border rounded flex flex-col h-full min-h-[420px] smooth-animation'>
                 <div className='relative h-48'>
                   <Image
                     src={project.image || '/placeholder.svg'}
