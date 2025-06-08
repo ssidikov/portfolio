@@ -7,7 +7,6 @@ import Technologies from '@/components/Technologies'
 import Portfolio from '@/components/Portfolio'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import Prices from '@/components/Prices'
 
 export default function Page() {
   return (
@@ -18,7 +17,6 @@ export default function Page() {
       <About />
       <Technologies />
       <Portfolio />
-      <Prices />
       <Contact />
       <Footer />
     </div>

@@ -180,12 +180,6 @@ export default function Header() {
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
             {t('nav.about')}
           </a>
-          <a
-            href='/#prices'
-            onClick={(e) => handleNavClick(e, '/#prices')}
-            className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-            {t('nav.prices')}
-          </a>
         </nav>{' '}
         {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-4'>
@@ -240,14 +234,6 @@ export default function Header() {
                   onClick={(e) => handleMobileNavClick(e, '/#about')}
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
                   {t('nav.about')}
-                </a>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <a
-                  href='/#prices'
-                  onClick={(e) => handleMobileNavClick(e, '/#prices')}
-                  className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
-                  {t('nav.prices')}
                 </a>
               </motion.div>
               <motion.div variants={itemVariants} className='w-full'>

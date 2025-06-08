@@ -55,7 +55,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
 
   const localizedProjects = getLocalizedProjects()
   return (
-    <section id='portfolio' className='container mx-auto px-4'>
+    <section id='portfolio' className='container mx-auto px-4 pb-14'>
       <AnimatedSection className='flex justify-between mb-12'>
         {' '}
         <div>
