@@ -3,7 +3,7 @@ import { projects } from '@/data/portfolio-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sidikov.tech'
-  
+
   // Статические страницы
   const staticRoutes: MetadataRoute.Sitemap = [
     {
