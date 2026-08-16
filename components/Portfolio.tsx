@@ -16,7 +16,7 @@ interface PortfolioProps {
 }
 
 export default function Portfolio({ title, subtitle, showAllProjects = false }: PortfolioProps) {
-  const [visibleProjects, setVisibleProjects] = useState(4)
+  const [visibleProjects, setVisibleProjects] = useState(8)
   const { t, language } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()

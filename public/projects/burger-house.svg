@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_burgerhouse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c0c05" />
+      <stop offset="50%" stop-color="#331709" />
+      <stop offset="100%" stop-color="#0f0602" />
+    </linearGradient>
+    <radialGradient id="g1_burgerhouse" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_burgerhouse" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_burgerhouse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="glass_burgerhouse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_burgerhouse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#ea580c" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_burgerhouse" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_burgerhouse" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_burgerhouse)" />
+  <rect width="1200" height="675" fill="url(#grid_burgerhouse)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_burgerhouse)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_burgerhouse)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_burgerhouse)" opacity="0.5" />
+
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_burgerhouse)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_burgerhouse)" stroke-width="1" transform="rotate(25 600 337)" />
+  </g>
+
+  <g filter="url(#glow_burgerhouse)">
+      <path d="M 510 290 A 90 90 0 0 1 690 290 Z" fill="url(#glass_burgerhouse)" stroke="url(#stroke_burgerhouse)" stroke-width="2.5" />
+      <rect x="500" y="315" width="200" height="20" rx="6" fill="#ea580c" />
+      <rect x="510" y="350" width="180" height="24" rx="6" fill="#f59e0b" />
+      <path d="M 510 395 A 90 35 0 0 0 690 395 Z" fill="url(#glass_burgerhouse)" stroke="url(#stroke_burgerhouse)" stroke-width="2.5" />
+    </g>
+</svg>

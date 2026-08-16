@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_learnhome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#110c22" />
+      <stop offset="50%" stop-color="#201640" />
+      <stop offset="100%" stop-color="#080511" />
+    </linearGradient>
+    <radialGradient id="g1_learnhome" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#a855f7" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_learnhome" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_learnhome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="glass_learnhome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_learnhome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_learnhome" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_learnhome" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_learnhome)" />
+  <rect width="1200" height="675" fill="url(#grid_learnhome)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_learnhome)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_learnhome)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_learnhome)" opacity="0.5" />
+
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_learnhome)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_learnhome)" stroke-width="1" transform="rotate(25 600 337)" />
+  </g>
+
+  <g filter="url(#glow_learnhome)">
+      <polygon points="600,240 720,290 600,340 480,290" fill="url(#glass_learnhome)" stroke="url(#stroke_learnhome)" stroke-width="2.5" />
+      <path d="M 510 310 L 510 390 Q 600 440 690 390 L 690 310" fill="none" stroke="url(#accent_learnhome)" stroke-width="2.5" />
+      <circle cx="600" cy="290" r="14" fill="#a855f7" />
+    </g>
+</svg>

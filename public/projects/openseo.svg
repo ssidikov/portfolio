@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_openseo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0817" />
+      <stop offset="50%" stop-color="#140f2d" />
+      <stop offset="100%" stop-color="#080512" />
+    </linearGradient>
+    <radialGradient id="g1_openseo" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_openseo" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_openseo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="glass_openseo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_openseo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_openseo" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_openseo" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_openseo)" />
+  <rect width="1200" height="675" fill="url(#grid_openseo)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_openseo)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_openseo)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_openseo)" opacity="0.5" />
+
+  <!-- Abstract Orbit Rings -->
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_openseo)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_openseo)" stroke-width="1" transform="rotate(25 600 337)" />
+    <circle cx="600" cy="337" r="220" fill="none" stroke="url(#stroke_openseo)" stroke-width="1" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Central Thematic 3D / Geometric Artwork -->
+  
+  <g filter="url(#glow_openseo)">
+    <!-- Outer radar rings -->
+    <circle cx="600" cy="337" r="160" fill="none" stroke="url(#accent_openseo)" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="8 8" />
+    <circle cx="600" cy="337" r="110" fill="none" stroke="url(#accent_openseo)" stroke-width="1.5" stroke-opacity="0.8" />
+    
+    <!-- Central Glass Shield / Search Prism -->
+    <polygon points="600,210 710,275 710,400 600,465 490,400 490,275" fill="url(#glass_openseo)" stroke="url(#stroke_openseo)" stroke-width="2.5" />
+    
+    <!-- Inner Geometric Core -->
+    <polygon points="600,250 675,295 675,380 600,425 525,380 525,295" fill="none" stroke="url(#accent_openseo)" stroke-width="2" />
+    <circle cx="600" cy="337" r="36" fill="url(#accent_openseo)" opacity="0.9" />
+    <circle cx="600" cy="337" r="18" fill="#ffffff" opacity="0.95" />
+
+    <!-- Connected Data Nodes -->
+    <g stroke="url(#accent_openseo)" stroke-width="2" opacity="0.8">
+      <line x1="600" y1="210" x2="600" y2="160" />
+      <line x1="710" y1="275" x2="760" y2="245" />
+      <line x1="710" y1="400" x2="760" y2="430" />
+      <line x1="600" y1="465" x2="600" y2="515" />
+      <line x1="490" y1="400" x2="440" y2="430" />
+      <line x1="490" y1="275" x2="440" y2="245" />
+    </g>
+    <circle cx="600" cy="160" r="8" fill="#06b6d4" />
+    <circle cx="760" cy="245" r="8" fill="#8b5cf6" />
+    <circle cx="760" cy="430" r="8" fill="#06b6d4" />
+    <circle cx="600" cy="515" r="8" fill="#8b5cf6" />
+    <circle cx="440" cy="430" r="8" fill="#06b6d4" />
+    <circle cx="440" cy="245" r="8" fill="#8b5cf6" />
+  </g>
+</svg>

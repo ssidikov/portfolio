@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_kodzaga" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0d10" />
+      <stop offset="50%" stop-color="#181820" />
+      <stop offset="100%" stop-color="#08080a" />
+    </linearGradient>
+    <radialGradient id="g1_kodzaga" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#e2e8f0" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_kodzaga" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_kodzaga" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="glass_kodzaga" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_kodzaga" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#e2e8f0" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_kodzaga" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_kodzaga" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_kodzaga)" />
+  <rect width="1200" height="675" fill="url(#grid_kodzaga)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_kodzaga)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_kodzaga)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_kodzaga)" opacity="0.5" />
+
+  <!-- Abstract Orbit Rings -->
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_kodzaga)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_kodzaga)" stroke-width="1" transform="rotate(25 600 337)" />
+    <circle cx="600" cy="337" r="220" fill="none" stroke="url(#stroke_kodzaga)" stroke-width="1" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Central Thematic 3D / Geometric Artwork -->
+  
+  <g filter="url(#glow_kodzaga)">
+    <!-- Camera Lens Barrel Rings -->
+    <circle cx="600" cy="337" r="160" fill="url(#glass_kodzaga)" stroke="url(#stroke_kodzaga)" stroke-width="2" />
+    <circle cx="600" cy="337" r="135" fill="none" stroke="url(#stroke_kodzaga)" stroke-width="1.5" stroke-dasharray="4 8" />
+    <circle cx="600" cy="337" r="115" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.6" />
+
+    <!-- Geometric Aperture Blades -->
+    <g stroke="url(#stroke_kodzaga)" stroke-width="2" fill="url(#glass_kodzaga)">
+      <path d="M 600 245 L 680 300 L 640 370 Z" />
+      <path d="M 680 300 L 680 390 L 600 390 Z" />
+      <path d="M 680 390 L 610 430 L 560 370 Z" />
+      <path d="M 610 430 L 520 380 L 560 305 Z" />
+      <path d="M 520 380 L 520 290 L 600 290 Z" />
+      <path d="M 520 290 L 590 245 L 640 310 Z" />
+    </g>
+
+    <!-- Prismatic Lens Flare Core -->
+    <circle cx="600" cy="337" r="42" fill="none" stroke="url(#accent_kodzaga)" stroke-width="3" />
+    <circle cx="600" cy="337" r="20" fill="#ffffff" opacity="0.9" />
+  </g>
+</svg>

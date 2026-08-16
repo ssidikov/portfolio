@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_barbershop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#160e0a" />
+      <stop offset="50%" stop-color="#291811" />
+      <stop offset="100%" stop-color="#0d0705" />
+    </linearGradient>
+    <radialGradient id="g1_barbershop" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_barbershop" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_barbershop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="glass_barbershop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_barbershop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_barbershop" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_barbershop" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_barbershop)" />
+  <rect width="1200" height="675" fill="url(#grid_barbershop)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_barbershop)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_barbershop)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_barbershop)" opacity="0.5" />
+
+  <!-- Abstract Orbit Rings -->
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_barbershop)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_barbershop)" stroke-width="1" transform="rotate(25 600 337)" />
+    <circle cx="600" cy="337" r="220" fill="none" stroke="url(#stroke_barbershop)" stroke-width="1" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Central Thematic 3D / Geometric Artwork -->
+  
+  <g filter="url(#glow_barbershop)">
+    <!-- Luxury Emblem Shield -->
+    <polygon points="600,200 710,260 710,390 600,470 490,390 490,260" fill="url(#glass_barbershop)" stroke="url(#stroke_barbershop)" stroke-width="2.5" />
+    
+    <!-- Crossed Golden Geometric Blades Motif -->
+    <line x1="530" y1="260" x2="670" y2="410" stroke="url(#accent_barbershop)" stroke-width="4.5" stroke-linecap="round" />
+    <line x1="670" y1="260" x2="530" y2="410" stroke="url(#accent_barbershop)" stroke-width="4.5" stroke-linecap="round" />
+    
+    <circle cx="600" cy="337" r="32" fill="url(#glass_barbershop)" stroke="#f59e0b" stroke-width="2" />
+    <circle cx="600" cy="337" r="14" fill="#f59e0b" />
+  </g>
+</svg>

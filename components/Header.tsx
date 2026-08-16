@@ -109,7 +109,7 @@ export default function Header() {
       <div className='container mx-auto px-4 py-2 flex items-center justify-between'>
         {' '}
         {/* Logo */}
-        <a href='/' className='flex items-center gap-2 z-50' onClick={handleLogoClick}>
+        <Link href='/' className='flex items-center gap-2 z-50' onClick={handleLogoClick}>
           <Image
             src='/logo.svg'
             alt='Logo'
@@ -122,7 +122,7 @@ export default function Header() {
               height: 'auto',
             }}
           />
-        </a>
+        </Link>
         {/* Mobile: language, theme, burger */}
         <div className='flex items-center md:hidden'>
           <LanguageSelector />
@@ -162,32 +162,32 @@ export default function Header() {
         </div>{' '}
         {/* Desktop nav */}
         <nav className='hidden md:flex items-center gap-6'>
-          <a
+          <Link
             href='/#home'
             onClick={(e) => handleNavClick(e, '/#home')}
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
             {t('nav.home')}
-          </a>
-          <a
+          </Link>
+          <Link
             href='/#portfolio'
             onClick={(e) => handleNavClick(e, '/#portfolio')}
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
             {t('nav.portfolio')}
-          </a>
-          <a
+          </Link>
+          <Link
             href='/#about'
             onClick={(e) => handleNavClick(e, '/#about')}
             className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
             {t('nav.about')}
-          </a>
+          </Link>
         </nav>{' '}
         {/* Desktop CTA */}
         <div className='hidden md:flex items-center gap-4'>
-          <a href='/#contact' onClick={(e) => handleNavClick(e, '/#contact')}>
+          <Link href='/#contact' onClick={(e) => handleNavClick(e, '/#contact')}>
             <button className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'>
               {t('nav.contact')}
             </button>
-          </a>
+          </Link>
           <LanguageSelector />
           <DarkModeToggle />
         </div>
@@ -213,38 +213,38 @@ export default function Header() {
               exit='hidden'>
               {' '}
               <motion.div variants={itemVariants}>
-                <a
+                <Link
                   href='/#home'
                   onClick={(e) => handleMobileNavClick(e, '/#home')}
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
                   {t('nav.home')}
-                </a>
+                </Link>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <a
+                <Link
                   href='/#portfolio'
                   onClick={(e) => handleMobileNavClick(e, '/#portfolio')}
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
                   {t('nav.portfolio')}
-                </a>
+                </Link>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <a
+                <Link
                   href='/#about'
                   onClick={(e) => handleMobileNavClick(e, '/#about')}
                   className='text-sm hover:text-primary transition-colors text-gray-600 dark:text-gray-300 dark:hover:text-indigo-500 cursor-pointer'>
                   {t('nav.about')}
-                </a>
+                </Link>
               </motion.div>
               <motion.div variants={itemVariants} className='w-full'>
-                <a
+                <Link
                   href='/#contact'
                   className='w-full'
                   onClick={(e) => handleMobileNavClick(e, '/#contact')}>
                   <button className='w-full px-4 py-2 text-sm font-medium bg-transparent border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
                     {t('nav.contact')}
                   </button>
-                </a>
+                </Link>
               </motion.div>
             </motion.nav>
           </motion.div>

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedSection from './AnimatedSection'
 import { useLanguage } from '@/context/LanguageContext'
@@ -18,67 +17,52 @@ export default function Hero() {
   return (
     <section
       id='home'
-      className='py-20 pt-32 md:pb-0 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center'>
-      {/* Left part - text and CTA*/}
-      <AnimatedSection className='space-y-8'>
-        <h1 className='text-4xl xl:text-6xl font-extrabold leading-tight tracking-tight'>
-          <span className='text-3xl gradient-text block'>{t('hero.title1')}</span>
-          <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
-          <span className='gradient-text'> {t('hero.title3')}</span>{' '}
-          <span className='text-gray-900 dark:text-white'>{t('hero.title4')}</span>
-        </h1>{' '}
-        <div className='md:hidden relative flex items-center justify-center w-full h-auto'>
-          <div className='relative aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>
-            <Image
-              src='/Sardorbek-Sidikov.png'
-              alt='Hero image'
-              width={500}
-              height={500}
-              className='object-cover w-full max-h-screen'
-              style={{
-                width: 'auto',
-                height: 'auto',
-              }}
-            />
-          </div>
+      className='relative pt-36 pb-20 md:pt-44 md:pb-28 container mx-auto px-4 flex flex-col items-center text-center'>
+      {/* Background ambient glow */}
+      <div className='pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden'>
+        <div className='w-[600px] h-[350px] bg-indigo-500/10 dark:bg-indigo-500/15 blur-[120px] rounded-full' />
+      </div>
+
+      <AnimatedSection className='flex flex-col items-center max-w-4xl space-y-6'>
+        {/* Status Badge */}
+        <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-xs sm:text-sm font-medium text-indigo-600 dark:text-indigo-400'>
+          <span className='w-2 h-2 rounded-full bg-emerald-500 animate-pulse' />
+          <span>{t('hero.badge')}</span>
         </div>
-        <h2 className='sm:text-lg md:text-xl text-muted-foreground max-w-xl'>
+
+        {/* Headline */}
+        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight'>
+          <span className='gradient-text block mb-2'>{t('hero.title1')}</span>
+          <span className='text-gray-900 dark:text-white'>{t('hero.title2')}</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className='text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl text-balance leading-relaxed'>
           {t('hero.description')}
-        </h2>{' '}
-        <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-          <a
+        </p>
+
+        {/* CTA Actions */}
+        <div className='flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center w-full sm:w-auto'>
+          <Link
             href='/#contact'
-            className='w-1/2 md:w-48'
+            className='w-full sm:w-auto'
             onClick={(e) => handleNavClick(e, 'contact')}>
-            <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
+            <button className='w-full sm:w-48 px-8 py-3.5 text-base font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center'>
               {t('hero.contact')}
             </button>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href='/#portfolio'
-            className='w-1/2 md:w-48'
+            className='w-full sm:w-auto'
             onClick={(e) => handleNavClick(e, 'portfolio')}>
-            <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>
+            <button className='w-full sm:w-48 px-8 py-3.5 text-base font-semibold border border-indigo-500/40 text-indigo-600 dark:text-indigo-300 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/40 active:scale-[0.98] transition-all flex items-center justify-center'>
               {t('hero.viewWork')}
             </button>
-          </a>
-        </div>
-      </AnimatedSection>
-
-      {/* The right part is the image */}
-      <AnimatedSection className='hidden md:w-full md:flex md:justify-center md:items-center aspect-w-1 aspect-h-1 md:aspect-w-4 md:aspect-h-3 lg:aspect-w-16 lg:aspect-h-9'>
-        <div className='relative w-full max-w-xl h-auto overflow-hidden'>
-          <Image
-            src='/Sardorbek-Sidikov.png'
-            alt='Photo de Sardorbek Sidikov, développeur web à Paris'
-            width={600}
-            height={600}
-            className='object-cover w-full h-auto'
-            priority
-          />
+          </Link>
         </div>
       </AnimatedSection>
     </section>
   )
 }
+

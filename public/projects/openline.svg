@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_openline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05111a" />
+      <stop offset="50%" stop-color="#0a2130" />
+      <stop offset="100%" stop-color="#030a10" />
+    </linearGradient>
+    <radialGradient id="g1_openline" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_openline" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_openline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="glass_openline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_openline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_openline" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_openline" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_openline)" />
+  <rect width="1200" height="675" fill="url(#grid_openline)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_openline)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_openline)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_openline)" opacity="0.5" />
+
+  <!-- Abstract Orbit Rings -->
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_openline)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_openline)" stroke-width="1" transform="rotate(25 600 337)" />
+    <circle cx="600" cy="337" r="220" fill="none" stroke="url(#stroke_openline)" stroke-width="1" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Central Thematic 3D / Geometric Artwork -->
+  
+  <g filter="url(#glow_openline)">
+    <!-- P2P Wave Arcs -->
+    <path d="M 420 337 A 180 180 0 0 1 780 337" fill="none" stroke="url(#accent_openline)" stroke-width="3" stroke-linecap="round" opacity="0.5" />
+    <path d="M 460 337 A 140 140 0 0 1 740 337" fill="none" stroke="url(#accent_openline)" stroke-width="3.5" stroke-linecap="round" opacity="0.75" />
+    <path d="M 500 337 A 100 100 0 0 1 700 337" fill="none" stroke="url(#accent_openline)" stroke-width="4" stroke-linecap="round" />
+    <path d="M 420 337 A 180 180 0 0 0 780 337" fill="none" stroke="url(#accent_openline)" stroke-width="3" stroke-linecap="round" opacity="0.5" />
+    <path d="M 460 337 A 140 140 0 0 0 740 337" fill="none" stroke="url(#accent_openline)" stroke-width="3.5" stroke-linecap="round" opacity="0.75" />
+    <path d="M 500 337 A 100 100 0 0 0 700 337" fill="none" stroke="url(#accent_openline)" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Left & Right P2P Floating Glass Spheres -->
+    <circle cx="480" cy="337" r="55" fill="url(#glass_openline)" stroke="url(#stroke_openline)" stroke-width="2.5" />
+    <circle cx="720" cy="337" r="55" fill="url(#glass_openline)" stroke="url(#stroke_openline)" stroke-width="2.5" />
+
+    <!-- Connecting Dynamic Beam -->
+    <line x1="480" y1="337" x2="720" y2="337" stroke="url(#accent_openline)" stroke-width="4" stroke-linecap="round" stroke-dasharray="16 8" />
+
+    <!-- Center Pulse Core -->
+    <circle cx="600" cy="337" r="28" fill="url(#glass_openline)" stroke="#ffffff" stroke-width="2" />
+    <circle cx="600" cy="337" r="14" fill="#06b6d4" />
+  </g>
+</svg>

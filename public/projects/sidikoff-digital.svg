@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <linearGradient id="bg_sidikoff" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090918" />
+      <stop offset="50%" stop-color="#131336" />
+      <stop offset="100%" stop-color="#050510" />
+    </linearGradient>
+    <radialGradient id="g1_sidikoff" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2_sidikoff" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent_sidikoff" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <linearGradient id="glass_sidikoff" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="stroke_sidikoff" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow_sidikoff" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid_sidikoff" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg_sidikoff)" />
+  <rect width="1200" height="675" fill="url(#grid_sidikoff)" />
+
+  <circle cx="600" cy="337" r="340" fill="url(#g1_sidikoff)" />
+  <circle cx="920" cy="180" r="260" fill="url(#g2_sidikoff)" />
+  <circle cx="280" cy="500" r="240" fill="url(#g2_sidikoff)" opacity="0.5" />
+
+  <!-- Abstract Orbit Rings -->
+  <g opacity="0.35">
+    <ellipse cx="600" cy="337" rx="360" ry="180" fill="none" stroke="url(#stroke_sidikoff)" stroke-width="1.5" transform="rotate(-15 600 337)" stroke-dasharray="12 12" />
+    <ellipse cx="600" cy="337" rx="280" ry="140" fill="none" stroke="url(#stroke_sidikoff)" stroke-width="1" transform="rotate(25 600 337)" />
+    <circle cx="600" cy="337" r="220" fill="none" stroke="url(#stroke_sidikoff)" stroke-width="1" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Central Thematic 3D / Geometric Artwork -->
+  
+  <g filter="url(#glow_sidikoff)">
+    <!-- 3D Geometric Torus / Abstract Ring Motif -->
+    <ellipse cx="600" cy="337" rx="160" ry="70" fill="none" stroke="url(#accent_sidikoff)" stroke-width="6" transform="rotate(-25 600 337)" />
+    <ellipse cx="600" cy="337" rx="160" ry="70" fill="none" stroke="url(#stroke_sidikoff)" stroke-width="4" transform="rotate(35 600 337)" />
+    <ellipse cx="600" cy="337" rx="140" ry="60" fill="none" stroke="#ffffff" stroke-width="2" transform="rotate(95 600 337)" opacity="0.8" />
+
+    <circle cx="600" cy="337" r="38" fill="url(#glass_sidikoff)" stroke="url(#stroke_sidikoff)" stroke-width="2" />
+    <circle cx="600" cy="337" r="18" fill="#f43f5e" />
+  </g>
+</svg>

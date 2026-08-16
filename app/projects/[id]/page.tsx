@@ -16,14 +16,9 @@ const getProjectById = (id: string) => {
 export default function ProjectPage({
   params,
 }: {
-  params: { id: string } | Promise<{ id: string }>
+  params: Promise<{ id: string }>
 }) {
-  // Next.js 14+ migration: unwrap params if it's a Promise
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const actualParams =
-    typeof (params as any).then === 'function'
-      ? React.use(params as Promise<{ id: string }>)
-      : (params as { id: string })
+  const actualParams = React.use(params)
 
   const { t, language } = useLanguage()
   const router = useRouter()
@@ -99,11 +94,11 @@ export default function ProjectPage({
               </div>
             </div>{' '}
             <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-              <a href='/#contact' onClick={handleContactClick} className='w-1/2 md:w-48'>
+              <Link href='/#contact' onClick={handleContactClick} className='w-1/2 md:w-48'>
                 <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
                   {t('hero.contact')}
                 </button>
-              </a>
+              </Link>
 
               <a
                 href={localizedProject.link}

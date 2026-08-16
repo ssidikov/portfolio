@@ -1,11 +1,267 @@
 export const projects = [
   {
     id: '1',
+    title: { en: 'Bahor Voyage', fr: 'Bahor Voyage', ru: 'Bahor Voyage' },
+    description: {
+      en: 'Multilingual travel platform for curated Uzbekistan circuits and cultural discovery.',
+      fr: 'Plateforme de voyage multilingue pour circuits sur mesure et séjours culturels en Ouzbékistan.',
+      ru: 'Многоязычная туристическая платформа для авторских туров и путешествий по Узбекистану.',
+    },
+    image: '/projects/bahor-voyage.webp',
+    longDescription: {
+      en: 'Bahor Voyage is a comprehensive full-stack travel platform built with Next.js 16 App Router. It features dynamic tour itinerary discovery, interactive day-by-day circuit details, automated PDF travel brochure generation with jsPDF, Sanity CMS integration for content management, PostgreSQL database with Prisma ORM, and secure authentication via NextAuth.',
+      fr: 'Bahor Voyage est une plateforme de voyage full-stack moderne conçue avec Next.js 16 App Router. Elle intègre la gestion de circuits touristiques personnalisés, la génération automatique de brochures PDF détaillées via jsPDF, un CMS headless avec Sanity, une base de données PostgreSQL gérée par Prisma ORM et une authentification sécurisée avec NextAuth.',
+      ru: 'Bahor Voyage — это полнофункциональная веб-платформа для бронирования туров, созданная на Next.js 16 App Router. Включает интерактивные программы туров по дням, автоматическую генерацию PDF-брошюр через jsPDF, интеграцию с Sanity CMS, базу данных PostgreSQL с Prisma ORM и авторизацию через NextAuth.',
+    },
+    technologies: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'Sanity CMS',
+      'NextAuth',
+      'jsPDF',
+      'Tailwind CSS',
+    ],
+    link: 'https://bahor-voyage.vercel.app',
+  },
+  {
+    id: '2',
+    title: { en: 'OpenSEO', fr: 'OpenSEO', ru: 'OpenSEO' },
+    description: {
+      en: 'Open-source AI-powered technical SEO audit engine and website performance analyzer.',
+      fr: 'Moteur d’audit SEO technique et d’analyse de performance web propulsé par l’IA.',
+      ru: 'AI-платформа для технического SEO-аудита и комплексного анализа сайтов.',
+    },
+    image: '/projects/openseo.webp',
+    longDescription: {
+      en: 'OpenSEO is a fast, free-to-use technical SEO auditing engine powered by Next.js 16 and Vercel AI SDK. It scrapes and analyzes any website in real time using Cheerio, tests Core Web Vitals, checks open-graph metadata, robots.txt, sitemaps, and headings hierarchy, and generates actionable, AI-driven improvement recommendations.',
+      fr: 'OpenSEO est un outil d’audit SEO technique open-source rapide et puissant basé sur Next.js 16 et Vercel AI SDK. Il analyse n’importe quel site en temps réel avec Cheerio, évalue les Core Web Vitals, vérifie les balises meta, les sitemaps et la hiérarchie des titres, puis génère des recommandations d’optimisation personnalisées par intelligence artificielle.',
+      ru: 'OpenSEO — это быстрый опенсорс-инструмент для технического SEO-аудита на базе Next.js 16 и Vercel AI SDK. В реальном времени парсит веб-страницы с помощью Cheerio, анализирует Core Web Vitals, метатеги, sitemap и robots.txt, формируя пошаговые рекомендации по оптимизации с помощью искусственного интеллекта.',
+    },
+    technologies: [
+      'Next.js 16',
+      'TypeScript',
+      'Vercel AI SDK',
+      'Cheerio',
+      'Tailwind CSS',
+      'Lucide Icons',
+    ],
+    link: 'https://openseo.vercel.app',
+  },
+  {
+    id: '3',
+    title: { en: 'OpenLine', fr: 'OpenLine', ru: 'OpenLine' },
+    description: {
+      en: 'Instant, private peer-to-peer video & audio calls with zero servers and no account needed.',
+      fr: 'Appels vidéo et audio peer-to-peer instantanés et privés, sans compte ni stockage serveur.',
+      ru: 'Мгновенные приватные P2P видео- и аудиозвонки без регистрации и серверного хранилища.',
+    },
+    image: '/projects/openline.webp',
+    longDescription: {
+      en: 'OpenLine is a lightweight, privacy-first peer-to-peer video calling web application. Leveraging WebRTC and PeerJS with Next.js 16, users can create instant encrypted video rooms, share screens, chat, and connect directly browser-to-browser with ultra-low latency and zero tracking or recording.',
+      fr: 'OpenLine est une application web de visioconférence peer-to-peer ultra-rapide et respectueuse de la vie privée. Utilisant WebRTC et PeerJS avec Next.js 16, les utilisateurs peuvent créer des salons chiffrés instantanés, partager leur écran et communiquer en direct de navigateur à navigateur sans latence ni enregistrement de données.',
+      ru: 'OpenLine — это приватное веб-приложение для видеозвонков P2P на базе WebRTC и PeerJS с Next.js 16. Пользователи могут мгновенно создавать зашифрованные комнаты по ссылке, делиться экраном и общаться напрямую браузер-браузер с минимальной задержкой без создания аккаунтов.',
+    },
+    technologies: ['Next.js 16', 'React', 'WebRTC', 'PeerJS', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://openonline.vercel.app',
+  },
+  {
+    id: '4',
+    title: { en: 'Kodzaga Photo', fr: 'Kodzaga Photo', ru: 'Kodzaga Photo' },
+    description: {
+      en: 'Professional photography showcase, client proofing galleries, and booking portal.',
+      fr: 'Vitrine de photographie professionnelle avec galeries clients privées et réservations.',
+      ru: 'Сайт-портфолио профессионального фотографа с закрытыми клиентскими галереями и бронированием.',
+    },
+    image: '/projects/kodzaga-photo.webp',
+    longDescription: {
+      en: 'A full-featured photography web platform engineered with Next.js 16, Drizzle ORM, and Neon Serverless PostgreSQL. It includes public editorial portfolios, password-protected client proofing galleries with favorites selection, online booking requests, email notifications via Nodemailer, and an administrative dashboard.',
+      fr: 'Une plateforme complète pour photographe professionnel réalisée avec Next.js 16, Drizzle ORM et Neon Serverless PostgreSQL. Elle comprend un portfolio éditorial, des galeries privées sécurisées par mot de passe pour la sélection des clichés clients, un système de réservation en ligne et un tableau de bord administrateur.',
+      ru: 'Полнофункциональная веб-платформа для фотографа на Next.js 16, Drizzle ORM и Neon Serverless PostgreSQL. Включает публичное портфолио, защищенные паролем клиентские галереи для отбора снимков, форму бронирования съемок и административную панель.',
+    },
+    technologies: [
+      'Next.js 16',
+      'TypeScript',
+      'Neon PostgreSQL',
+      'Drizzle ORM',
+      'NextAuth',
+      'Tailwind CSS',
+      'Nodemailer',
+    ],
+    link: 'https://kodzaga-photo.vercel.app',
+  },
+  {
+    id: '5',
+    title: { en: 'Degaus', fr: 'Degaus', ru: 'Degaus' },
+    description: {
+      en: 'High-conversion SaaS landing page and showcase for an AI content creation platform.',
+      fr: 'Landing page SaaS et vitrine pour une plateforme de création de contenu par IA.',
+      ru: 'SaaS-лендинг и презентационная платформа для генерации контента с помощью искусственного интеллекта.',
+    },
+    image: '/projects/degaus.webp',
+    longDescription: {
+      en: 'Degaus is a modern, production-ready landing page for an AI content generation platform. Built with Next.js 16, React 19, and Tailwind CSS 4, it features dynamic glowing gradients, Sanity CMS integration for blog articles, Clerk user authentication, interactive feature demos, and PostHog analytics.',
+      fr: 'Degaus est une landing page SaaS moderne et performante pour une plateforme de création de contenu IA. Conçue avec Next.js 16, React 19 et Tailwind CSS 4, elle propose des animations fluides, un blog dynamique propulsé par Sanity CMS, une authentification avec Clerk et des démonstrations interactives.',
+      ru: 'Degaus — это современный высококонверсионный SaaS-лендинг для ИИ-платформы генерации контента. Построен на Next.js 16, React 19 и Tailwind CSS 4, включает динамический блог на Sanity CMS, авторизацию через Clerk, интерактивные демо-блоки и аналитику PostHog.',
+    },
+    technologies: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 4',
+      'Sanity CMS',
+      'Framer Motion',
+      'Clerk',
+    ],
+    link: 'https://github.com/ssidikov/degaus',
+  },
+  {
+    id: '6',
+    title: { en: 'Sidikoff Digital', fr: 'Sidikoff Digital', ru: 'Sidikoff Digital' },
+    description: {
+      en: 'Creative digital agency and freelance studio portfolio with interactive GSAP animations.',
+      fr: 'Portfolio d’agence digitale créative avec animations interactives GSAP et Framer Motion.',
+      ru: 'Сайт креативного цифрового агентства и студии веб-разработки с интерактивными анимациями.',
+    },
+    image: '/projects/sidikoff-digital.webp',
+    longDescription: {
+      en: 'A luxury creative agency showcase built with Next.js, Framer Motion, and GSAP. Features smooth magnetic interactions, dynamic project grids, interactive service discovery, dark aesthetic, and a fully functional quote request form with Nodemailer.',
+      fr: 'Vitrine d’agence créative haut de gamme développée avec Next.js, Framer Motion et GSAP. Propose des transitions fluides, une mise en valeur interactive des projets et services, un design sombre élégant et un formulaire de demande de devis connecté à Nodemailer.',
+      ru: 'Сайт премиального цифрового агентства на Next.js, Framer Motion и GSAP. Включает плавные скролл-анимации, интерактивную презентацию услуг и кейсов, темную эстетику и форму заказа с отправкой через Nodemailer.',
+    },
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'GSAP',
+      'Framer Motion',
+      'Nodemailer',
+    ],
+    link: 'https://sidikoff.vercel.app',
+  },
+  {
+    id: '7',
+    title: {
+      en: 'Lyon Barbershop 6ème',
+      fr: 'Lyon Barbershop 6ème',
+      ru: 'Lyon Barbershop 6ème',
+    },
+    description: {
+      en: 'Upscale website for a premier men’s grooming and barber salon in Lyon, France.',
+      fr: 'Site web haut de gamme pour un salon de coiffure et barbier masculin à Lyon 6ème.',
+      ru: 'Премиальный сайт для мужского барбершопа и салона груминга в Лионе (Франция).',
+    },
+    image: '/projects/barbershop-lyon.webp',
+    longDescription: {
+      en: 'A tailor-made website created for Lyon Barbershop 6ème on Cours Lafayette in Lyon. Features a curated service menu with pricing, dynamic photo gallery, appointment booking integration, customer reviews, and localized SEO optimization.',
+      fr: 'Site vitrine sur mesure pour le salon Lyon Barbershop 6ème situé Cours Lafayette à Lyon. Intègre la carte détaillée des prestations et tarifs, une galerie photo immersive, la redirection vers la prise de rendez-vous en ligne et une optimisation SEO locale.',
+      ru: 'Индивидуальный сайт для барбершопа Lyon Barbershop 6ème в Лионе. Содержит полный прайс-лист услуг, галерею интерьера и работ, интеграцию с онлайн-записью и локальную SEO-оптимизацию.',
+    },
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Lucide Icons',
+    ],
+    link: 'https://barbershop-6-lyon.vercel.app',
+  },
+  {
+    id: '8',
+    title: {
+      en: "L'Instant Barbier",
+      fr: "L'Instant Barbier",
+      ru: "L'Instant Barbier",
+    },
+    description: {
+      en: 'Artisanal barbershop website featuring animated haircuts showcase and booking.',
+      fr: 'Site vitrine de barbier artisanal avec galerie de styles animée et réservation.',
+      ru: 'Сайт барбершопа с анимированной витриной мужских стрижек и онлайн-записью.',
+    },
+    image: '/projects/instant-barbier.webp',
+    longDescription: {
+      en: "A modern showcase website for L'Instant Barbier built with Next.js 16 and React 19. It emphasizes craftsmanship through interactive style showcases, animated price cards, and a smooth booking flow.",
+      fr: "Site vitrine moderne pour L'Instant Barbier développé avec Next.js 16 et React 19. Met en valeur le savoir-faire artisanal grâce à une galerie de styles dynamique, des cartes de tarifs animées et une interface de réservation fluide.",
+      ru: "Сайт для барбершопа L'Instant Barbier на Next.js 16 и React 19. Демонстрирует мастерство через интерактивную галерею стилей, анимированные тарифные карточки и удобную форму записи.",
+    },
+    technologies: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'GSAP',
+      'Framer Motion',
+      'Tailwind CSS',
+    ],
+    link: 'https://linstantbarbier.vercel.app',
+  },
+  {
+    id: '9',
+    title: { en: 'Chez Liqi', fr: 'Chez Liqi', ru: 'Chez Liqi' },
+    description: {
+      en: 'Asian fusion restaurant website with interactive menu categories and table booking.',
+      fr: 'Site de restaurant asiatique fusion avec menu interactif et réservation de table.',
+      ru: 'Сайт ресторана азиатской кухни с интерактивным меню и бронированием столов.',
+    },
+    image: '/projects/chez-liqi.webp',
+    longDescription: {
+      en: 'A restaurant website designed with Next.js and Tailwind CSS for Chez Liqi. Features interactive filtered food menus (ramen, dim sum, sushi), restaurant opening hours, location map, and direct reservation functionality.',
+      fr: 'Site web de restaurant conçu avec Next.js et Tailwind CSS pour Chez Liqi. Intègre un menu interactif avec filtres par catégorie (nouilles, dim sum, sushi), les horaires d’ouverture, la localisation et un module de réservation de table.',
+      ru: 'Веб-сайт ресторана азиатской кухни Chez Liqi на Next.js и Tailwind CSS. Включает интерактивное меню с фильтрацией блюд, часы работы, карту проезда и форму бронирования столиков.',
+    },
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Lucide Icons',
+    ],
+    link: 'https://chez-liqi.vercel.app',
+  },
+  {
+    id: '10',
+    title: { en: 'Eco Web France', fr: 'Eco Web France', ru: 'Eco Web France' },
+    description: {
+      en: 'Digital sustainability and eco-friendly web development awareness platform.',
+      fr: 'Plateforme de sensibilisation à l’éco-conception web et à la sobriété numérique.',
+      ru: 'Платформа экологичной веб-разработки и оценки углеродного следа цифровых продуктов.',
+    },
+    image: '/projects/eco-web.webp',
+    longDescription: {
+      en: 'Eco Web France promotes sustainable digital transition and green web practices. Built with Next.js and Tailwind CSS, it offers carbon footprint calculators, green coding guidelines, and performance optimization benchmarks.',
+      fr: 'Eco Web France accompagne la transition écologique numérique. Réalisé avec Next.js et Tailwind CSS, le site présente des indicateurs d’empreinte carbone, des guides de bonnes pratiques Green IT et des benchmarks d’optimisation.',
+      ru: 'Платформа Eco Web France посвящена устойчивому развитию в IT и эко-дизайну сайтов. Создана на Next.js и Tailwind CSS, включает расчет углеродного следа, рекомендации по Green IT и оптимизации скорости.',
+    },
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    link: 'https://eco-web-france.vercel.app/',
+  },
+  {
+    id: '11',
+    title: { en: 'Newsletter Brevo', fr: 'Newsletter Brevo', ru: 'Newsletter Brevo' },
+    description: {
+      en: 'Responsive HTML email templates and customization guide for Brevo (Sendinblue).',
+      fr: 'Templates d’e-mails HTML responsives et guide de personnalisation pour Brevo.',
+      ru: 'Адаптивные шаблоны HTML-рассылок и руководство по интеграции с Brevo (Sendinblue).',
+    },
+    image: '/projects/newsletter-brevo.webp',
+    longDescription: {
+      en: 'A suite of multi-layout, cross-client compatible responsive HTML email templates engineered for Brevo (Sendinblue). Features dark-mode support, bulletproof email typography, and a complete Markdown editing guide.',
+      fr: 'Une collection de gabarits d’e-mails HTML responsives et compatibles avec tous les clients de messagerie pour Brevo. Comprend le support du mode sombre, des blocs modulaires et un guide complet d’édition.',
+      ru: 'Набор адаптивных шаблонов HTML-писем с кросс-клиентской совместимостью для Brevo (Sendinblue). Поддерживает темную тему, блочную структуру и подробное руководство по редактированию.',
+    },
+    technologies: ['HTML5', 'Email CSS', 'Brevo API', 'Responsive Design'],
+    link: 'https://ssidikov.github.io/Newsletter_brevo/',
+  },
+  {
+    id: '12',
     title: { en: 'Kasa', fr: 'Kasa', ru: 'Kasa' },
     description: {
-      en: 'A rental platform with a responsive design.',
-      fr: 'Plateforme de location avec design responsive.',
-      ru: 'Платформа аренды с адаптивным дизайном.',
+      en: 'A rental platform with a responsive design and interactive galleries.',
+      fr: 'Plateforme de location avec design responsive et galeries interactives.',
+      ru: 'Платформа аренды жилья с адаптивным дизайном и интерактивными галереями.',
     },
     image: '/projects/kasa.webp',
     longDescription: {
@@ -13,33 +269,33 @@ export const projects = [
       fr: 'Kasa offre une interface conviviale pour rechercher et réserver des logements. Le projet inclut la navigation, des menus déroulants et un design entièrement responsive.',
       ru: 'Kasa предоставляет удобный интерфейс для поиска и бронирования жилья. Проект включает навигацию, выпадающие меню и полностью адаптивный дизайн.',
     },
-    technologies: ['React', 'SASS'],
+    technologies: ['React', 'React Router', 'SASS'],
     link: 'https://ssidikov.github.io/kasa/',
   },
   {
-    id: '2',
+    id: '13',
     title: { en: 'SportSee', fr: 'SportSee', ru: 'SportSee' },
     description: {
-      en: 'A dashboard for analyzing fitness data.',
-      fr: 'Tableau de bord pour l’analyse des données de fitness.',
-      ru: 'Дашборд для анализа фитнес-данных.',
+      en: 'A dashboard for analyzing fitness data and tracking user workouts.',
+      fr: 'Tableau de bord pour l’analyse des données de fitness et performances.',
+      ru: 'Дашборд для анализа фитнес-данных и тренировочной активности.',
     },
     image: '/projects/sport-see.webp',
     longDescription: {
-      en: 'SportSee visualizes user fitness data, including sessions and key metrics. Built with React and API integration.',
-      fr: 'SportSee visualise les données de fitness des utilisateurs, y compris les sessions et les indicateurs clés. Réalisé avec React et intégration API.',
-      ru: 'SportSee визуализирует фитнес-данные пользователя, включая сессии и ключевые метрики. Реализовано на React с интеграцией API.',
+      en: 'SportSee visualizes user fitness data, including sessions and key metrics. Built with React and API integration using Recharts.',
+      fr: 'SportSee visualise les données de fitness des utilisateurs, y compris les sessions et les indicateurs clés. Réalisé avec React, Recharts et intégration API.',
+      ru: 'SportSee визуализирует фитнес-данные пользователя, включая сессии и ключевые метрики. Реализовано на React с интеграцией API и Recharts.',
     },
     technologies: ['React', 'React Router', 'Recharts', 'SASS', 'Axios'],
     link: 'https://ssidikov.github.io/SportSee/',
   },
   {
-    id: '3',
+    id: '14',
     title: { en: 'ArgentBank', fr: 'ArgentBank', ru: 'ArgentBank' },
     description: {
-      en: 'A banking interface for account management.',
-      fr: 'Interface bancaire pour la gestion de comptes.',
-      ru: 'Банковский интерфейс для управления счетами.',
+      en: 'A banking interface for account management with Redux.',
+      fr: 'Interface bancaire pour la gestion de comptes avec Redux.',
+      ru: 'Банковский интерфейс для управления счетами на Redux.',
     },
     image: '/projects/argent-bank.webp',
     longDescription: {
@@ -47,11 +303,11 @@ export const projects = [
       fr: 'ArgentBank offre un accès sécurisé et pratique aux informations de compte. Authentification et gestion d’état via Redux.',
       ru: 'ArgentBank обеспечивает безопасный и удобный доступ к информации о счетах. Аутентификация и управление состоянием через Redux.',
     },
-    technologies: ['React', 'Redux', 'React Router', 'REST API', 'Swagger'],
-    link: 'https://ssidikov.github.io/Argent-Bank/',
+    technologies: ['React', 'Redux Toolkit', 'React Router', 'REST API', 'Swagger'],
+    link: 'https://github.com/ssidikov/Argent-Bank',
   },
   {
-    id: '4',
+    id: '15',
     title: { en: 'HRnet', fr: 'HRnet', ru: 'HRnet' },
     description: {
       en: 'A modern application for managing employee records.',
@@ -68,7 +324,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/HRnet/',
   },
   {
-    id: '5',
+    id: '16',
     title: { en: 'Les petits plats', fr: 'Les petits plats', ru: 'Les petits plats' },
     description: {
       en: 'Development of a search algorithm for a cooking recipe platform with performance optimization.',
@@ -92,7 +348,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/PetitsPlats2.0/',
   },
   {
-    id: '6',
+    id: '17',
     title: { en: 'Trendy Cookies', fr: 'Trendy Cookies', ru: 'Trendy Cookies' },
     description: {
       en: 'A website for ordering trendy cookies.',
@@ -105,11 +361,11 @@ export const projects = [
       fr: 'Trendy Cookies propose une plateforme simple pour commander des cookies. Réalisé avec Angular, design responsive et processus de commande simplifié.',
       ru: 'Trendy Cookies — это удобная платформа для заказа сладких печений. Реализовано на Angular, адаптивный дизайн и простой процесс заказа.',
     },
-    technologies: ['Angular', 'CSS', 'HTML'],
+    technologies: ['Angular', 'CSS', 'HTML', 'TypeScript'],
     link: 'https://ssidikov.github.io/cookies_angular/',
   },
   {
-    id: '7',
+    id: '18',
     title: { en: 'Fisheye', fr: 'Fisheye', ru: 'Fisheye' },
     description: {
       en: 'An accessible platform for photographers to showcase their portfolios.',
@@ -126,7 +382,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/Front-End-Fisheye/',
   },
   {
-    id: '8',
+    id: '19',
     title: { en: 'GameOn Landing Page', fr: 'GameOn Landing Page', ru: 'GameOn Landing Page' },
     description: {
       en: 'A dynamic landing page for a gaming conference and contest organization.',
@@ -143,7 +399,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/GameOn-website-FR/',
   },
   {
-    id: '9',
+    id: '20',
     title: { en: 'Ohmyfood Paris', fr: 'Ohmyfood Paris', ru: 'Ohmyfood Paris' },
     description: {
       en: 'A dynamic page showcasing the menus of four Parisian restaurants with online booking and menu composition.',
@@ -160,7 +416,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/OhMyFood/',
   },
   {
-    id: '10',
+    id: '21',
     title: {
       en: 'Billed Expense Feature',
       fr: 'Billed Expense Feature',
@@ -178,10 +434,10 @@ export const projects = [
       ru: 'В проекте проводилась отладка и написание unit-, интеграционных и e2e-тестов для функции подачи расходов. Исправление багов через Chrome Debugger, покрытие тестами >80%, составление тест-плана.',
     },
     technologies: ['JavaScript', 'Jest', 'Chrome Debugger', 'End-to-End Testing'],
-    link: 'https://github.com/ssidikov/Billed-app-FR-Front/',
+    link: 'https://github.com/ssidikov/Billed-app-FR-Front',
   },
   {
-    id: '11',
+    id: '22',
     title: {
       en: 'Booki - Travel Agency Homepage',
       fr: 'Booki - Page d’accueil',
@@ -202,7 +458,7 @@ export const projects = [
     link: 'https://ssidikov.github.io/Booki/',
   },
   {
-    id: '12',
+    id: '23',
     title: {
       en: 'Burger House - Landing Page',
       fr: 'Burger House - Landing Page',
@@ -216,14 +472,14 @@ export const projects = [
     image: '/projects/burger-house.webp',
     longDescription: {
       en: 'This project involves creating a landing page for a burger restaurant with an interactive order form. The page allows users to select and customize their burger order.',
-      fr: 'Création d’une landing page pour un restaurant de burgers avec formulaire интерактивный. L’utilisateur peut choisir et personnaliser sa commande.',
+      fr: 'Création d’une landing page pour un restaurant de burgers avec formulaire interactif. L’utilisateur peut choisir et personnaliser sa commande.',
       ru: 'Проект по созданию лендинга для бургерной с интерактивной формой заказа. Пользователь может выбрать и настроить свой бургер.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
     link: 'https://ssidikov.github.io/burgers-landing/',
   },
   {
-    id: '13',
+    id: '24',
     title: {
       en: 'Learn Home - Tutoring App',
       fr: 'Learn Home - Application de tutorat',
@@ -244,7 +500,7 @@ export const projects = [
     link: '#',
   },
   {
-    id: '14',
+    id: '25',
     title: {
       en: 'Landing Page for Euclid - Project Systems',
       fr: 'Landing Page pour Euclid - Project Systems',
