@@ -576,6 +576,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
     if (savedLanguage && ['fr', 'en', 'ru'].includes(savedLanguage)) {
       // Если есть сохраненный язык, используем его
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLanguage(savedLanguage)
     } else {
       // Если нет сохраненного языка, определяем язык браузера
