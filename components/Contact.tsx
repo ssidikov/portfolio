@@ -102,13 +102,22 @@ export default function Contact() {
       return
     }
     try {
-      const response = await fetch('https://formspree.io/f/xjkknzdd', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
         headers: {
-          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          firstName: formData.get('first-name') as string,
+          lastName: (formData.get('last-name') as string) || '',
+          email: formData.get('email') as string,
+          phone: (formData.get('phone-number') as string) || '',
+          message: (formData.get('message') as string) || '',
+          tariff: selectedTariff || '',
+        }),
       })
+
+      const data = await response.json()
 
       if (response.ok) {
         setIsPopupOpen(true)
@@ -116,10 +125,10 @@ export default function Contact() {
         setFormErrors({})
         setTimeout(() => setIsPopupOpen(false), 5000)
       } else {
-        throw new Error('Failed to send message')
+        throw new Error(data.error || 'Failed to send message')
       }
-    } catch (err) {
-      setError('An error occurred while sending the message. Please try again.')
+    } catch (err: any) {
+      setError(err?.message || 'An error occurred while sending the message. Please try again.')
     } finally {
       setIsLoading(false)
     }
