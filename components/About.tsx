@@ -54,17 +54,14 @@ export default function About() {
       <div className='grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16'>
         {/* Profile Image Card */}
         <AnimatedSection className='lg:col-span-5 flex justify-center'>
-          <div className='relative group w-full max-w-md'>
-            {/* Ambient Background Gradient Glow */}
-            <div className='absolute -inset-1 rounded-3xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-sky-500 opacity-30 group-hover:opacity-50 blur-xl transition-all duration-500' />
-
+          <div className='relative w-full max-w-md'>
             <div className='relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md p-4 shadow-xl'>
               <div className='relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800'>
                 <Image
                   src='/images/sidikov-web.png'
                   alt='Sardorbek Sidikov - Développeur Web à Lyon'
                   fill
-                  className='object-cover object-top transition-transform duration-500 group-hover:scale-105'
+                  className='object-cover object-top'
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 400px'
                   priority
                 />
@@ -81,7 +78,7 @@ export default function About() {
                     <span>Lyon, France</span>
                   </p>
                 </div>
-                <span className='px-3 py-1 text-xs font-semibold rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/40'>
+                <span className='px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700'>
                   Web Developer
                 </span>
               </div>
@@ -171,10 +168,10 @@ function TechCard({
       />
       <div className='space-y-4 relative z-10'>
         <div className='flex items-center justify-between gap-2'>
-          <div className='w-11 h-11 rounded-lg bg-indigo-500/10 dark:bg-indigo-500/20 border border-indigo-500/20 flex items-center justify-center'>
-            <IconComponent className='w-6 h-6 text-indigo-600 dark:text-indigo-400' />
+          <div className='w-11 h-11 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center'>
+            <IconComponent className='w-6 h-6 text-gray-900 dark:text-white' />
           </div>
-          <span className='px-2.5 py-1 text-xs font-semibold rounded-md bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/50 text-right'>
+          <span className='px-2.5 py-1 text-xs font-semibold rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 text-right'>
             {item.tag}
           </span>
         </div>
@@ -214,8 +211,8 @@ function FeatureCard({
         transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
       />
       <div className='space-y-2 relative z-10'>
-        <div className='flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-base'>
-          <IconComponent className='w-5 h-5 flex-shrink-0' />
+        <div className='flex items-center gap-2 text-gray-900 dark:text-white font-bold text-base'>
+          <IconComponent className='w-5 h-5 flex-shrink-0 text-gray-700 dark:text-gray-300' />
           <span>{title}</span>
         </div>
         <p className='text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed'>

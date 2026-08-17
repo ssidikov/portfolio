@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -20,6 +20,13 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   const { t, language } = useLanguage()
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setVisibleProjects(3)
+    }
+  }, [])
+
   const handleHomeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     // Используем Next.js router для навигации без перезагрузки страницы
@@ -31,7 +38,8 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
   }
 
   const loadMoreProjects = () => {
-    setVisibleProjects((prev) => Math.min(prev + 4, projects.length))
+    const increment = typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 4
+    setVisibleProjects((prev) => Math.min(prev + increment, projects.length))
   }
 
   // Get localized projects based on current language
