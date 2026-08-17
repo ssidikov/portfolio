@@ -56,7 +56,7 @@ export default function Hero() {
             href='/#portfolio'
             className='w-full sm:w-auto'
             onClick={(e) => handleNavClick(e, 'portfolio')}>
-            <button className='w-full sm:w-48 px-8 py-3.5 text-base font-semibold border border-indigo-500/40 text-indigo-600 dark:text-indigo-300 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/40 active:scale-[0.98] transition-all flex items-center justify-center'>
+            <button className='w-full px-8 py-3.5 text-base font-semibold border border-indigo-500/40 text-indigo-600 dark:text-indigo-300 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/40 active:scale-[0.98] transition-all flex items-center justify-center'>
               {t('hero.viewWork')}
             </button>
           </Link>
@@ -65,4 +65,3 @@ export default function Hero() {
     </section>
   )
 }
-
