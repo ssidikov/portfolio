@@ -91,7 +91,7 @@ export default function Prices() {
                   : 'border-gray-200 dark:border-gray-800'
               }`}>
               <div className='mb-5'>
-                <h3 className='text-2xl font-bold mb-2'>{tier.name}</h3>
+                <h4 className='text-2xl font-bold mb-2'>{tier.name}</h4>
                 <p className='text-xl font-semibold mb-4 gradient-text'>{tier.price}</p>
                 <p className='text-muted-foreground'>{tier.description}</p>
               </div>

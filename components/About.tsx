@@ -46,7 +46,7 @@ export default function About() {
         </div>
         <h2 className='text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight'>
           <span className='gradient-text'>{t('about.title')}</span>{' '}
-          <span className='text-gray-900 dark:text-white'>— {t('about.subtitle')}</span>
+          <span className='text-gray-900 dark:text-white'>· {t('about.subtitle')}</span>
         </h2>
       </AnimatedSection>
 

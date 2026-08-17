@@ -1,4 +1,14 @@
-export const projects = [
+export type Project = {
+  id: string
+  title: { [key: string]: string } | string
+  description: { [key: string]: string } | string
+  image: string
+  longDescription: { [key: string]: string } | string
+  technologies: string[]
+  link: string
+}
+
+export const projects: Project[] = [
   {
     id: '1',
     title: { en: 'Bahor Voyage', fr: 'Bahor Voyage', ru: 'Bahor Voyage' },
@@ -11,7 +21,7 @@ export const projects = [
     longDescription: {
       en: 'Bahor Voyage is a comprehensive full-stack travel platform built with Next.js 16 App Router. It features dynamic tour itinerary discovery, interactive day-by-day circuit details, automated PDF travel brochure generation with jsPDF, Sanity CMS integration for content management, PostgreSQL database with Prisma ORM, and secure authentication via NextAuth.',
       fr: 'Bahor Voyage est une plateforme de voyage full-stack moderne conçue avec Next.js 16 App Router. Elle intègre la gestion de circuits touristiques personnalisés, la génération automatique de brochures PDF détaillées via jsPDF, un CMS headless avec Sanity, une base de données PostgreSQL gérée par Prisma ORM et une authentification sécurisée avec NextAuth.',
-      ru: 'Bahor Voyage — это полнофункциональная веб-платформа для бронирования туров, созданная на Next.js 16 App Router. Включает интерактивные программы туров по дням, автоматическую генерацию PDF-брошюр через jsPDF, интеграцию с Sanity CMS, базу данных PostgreSQL с Prisma ORM и авторизацию через NextAuth.',
+      ru: 'Bahor Voyage: веб-платформа для бронирования туров, созданная на Next.js 16 App Router. Включает интерактивные программы туров по дням, автоматическую генерацию PDF-брошюр через jsPDF, интеграцию с Sanity CMS, базу данных PostgreSQL с Prisma ORM и авторизацию через NextAuth.',
     },
     technologies: [
       'Next.js 16',
@@ -38,7 +48,7 @@ export const projects = [
     longDescription: {
       en: 'OpenSEO is a fast, free-to-use technical SEO auditing engine powered by Next.js 16 and Vercel AI SDK. It scrapes and analyzes any website in real time using Cheerio, tests Core Web Vitals, checks open-graph metadata, robots.txt, sitemaps, and headings hierarchy, and generates actionable, AI-driven improvement recommendations.',
       fr: 'OpenSEO est un outil d’audit SEO technique open-source rapide et puissant basé sur Next.js 16 et Vercel AI SDK. Il analyse n’importe quel site en temps réel avec Cheerio, évalue les Core Web Vitals, vérifie les balises meta, les sitemaps et la hiérarchie des titres, puis génère des recommandations d’optimisation personnalisées par intelligence artificielle.',
-      ru: 'OpenSEO — это быстрый опенсорс-инструмент для технического SEO-аудита на базе Next.js 16 и Vercel AI SDK. В реальном времени парсит веб-страницы с помощью Cheerio, анализирует Core Web Vitals, метатеги, sitemap и robots.txt, формируя пошаговые рекомендации по оптимизации с помощью искусственного интеллекта.',
+      ru: 'OpenSEO: инструмент для технического SEO-аудита на базе Next.js 16 и Vercel AI SDK. В реальном времени парсит веб-страницы с помощью Cheerio, анализирует Core Web Vitals, метатеги, sitemap и robots.txt, формируя рекомендации по оптимизации с помощью нейросетей.',
     },
     technologies: [
       'Next.js 16',
@@ -62,7 +72,7 @@ export const projects = [
     longDescription: {
       en: 'OpenLine is a lightweight, privacy-first peer-to-peer video calling web application. Leveraging WebRTC and PeerJS with Next.js 16, users can create instant encrypted video rooms, share screens, chat, and connect directly browser-to-browser with ultra-low latency and zero tracking or recording.',
       fr: 'OpenLine est une application web de visioconférence peer-to-peer ultra-rapide et respectueuse de la vie privée. Utilisant WebRTC et PeerJS avec Next.js 16, les utilisateurs peuvent créer des salons chiffrés instantanés, partager leur écran et communiquer en direct de navigateur à navigateur sans latence ni enregistrement de données.',
-      ru: 'OpenLine — это приватное веб-приложение для видеозвонков P2P на базе WebRTC и PeerJS с Next.js 16. Пользователи могут мгновенно создавать зашифрованные комнаты по ссылке, делиться экраном и общаться напрямую браузер-браузер с минимальной задержкой без создания аккаунтов.',
+      ru: 'OpenLine: приватное веб-приложение для видеозвонков P2P на базе WebRTC и PeerJS с Next.js 16. Пользователи могут мгновенно создавать зашифрованные комнаты по ссылке, делиться экраном и общаться напрямую браузер-браузер с минимальной задержкой без создания аккаунтов.',
     },
     technologies: ['Next.js 16', 'React', 'WebRTC', 'PeerJS', 'TypeScript', 'Tailwind CSS'],
     link: 'https://openonline.vercel.app',
@@ -104,7 +114,7 @@ export const projects = [
     longDescription: {
       en: 'Degaus is a modern, production-ready landing page for an AI content generation platform. Built with Next.js 16, React 19, and Tailwind CSS 4, it features dynamic glowing gradients, Sanity CMS integration for blog articles, Clerk user authentication, interactive feature demos, and PostHog analytics.',
       fr: 'Degaus est une landing page SaaS moderne et performante pour une plateforme de création de contenu IA. Conçue avec Next.js 16, React 19 et Tailwind CSS 4, elle propose des animations fluides, un blog dynamique propulsé par Sanity CMS, une authentification avec Clerk et des démonstrations interactives.',
-      ru: 'Degaus — это современный высококонверсионный SaaS-лендинг для ИИ-платформы генерации контента. Построен на Next.js 16, React 19 и Tailwind CSS 4, включает динамический блог на Sanity CMS, авторизацию через Clerk, интерактивные демо-блоки и аналитику PostHog.',
+      ru: 'Degaus: SaaS-лендинг для платформы генерации контента. Построен на Next.js 16, React 19 и Tailwind CSS 4, включает динамический блог на Sanity CMS, авторизацию через Clerk, интерактивные демо-блоки и аналитику PostHog.',
     },
     technologies: [
       'Next.js 16',
@@ -359,7 +369,7 @@ export const projects = [
     longDescription: {
       en: 'Trendy Cookies offers users an easy-to-use platform for ordering sweet cookies. Built with Angular, it includes a responsive design and simple ordering process.',
       fr: 'Trendy Cookies propose une plateforme simple pour commander des cookies. Réalisé avec Angular, design responsive et processus de commande simplifié.',
-      ru: 'Trendy Cookies — это удобная платформа для заказа сладких печений. Реализовано на Angular, адаптивный дизайн и простой процесс заказа.',
+      ru: 'Trendy Cookies: платформа для заказа сладостей и выпечки. Реализовано на Angular, адаптивный дизайн и простой процесс оформления заказа.',
     },
     technologies: ['Angular', 'CSS', 'HTML', 'TypeScript'],
     link: 'https://ssidikov.github.io/cookies_angular/',
@@ -376,7 +386,7 @@ export const projects = [
     longDescription: {
       en: 'Fisheye is a web application that allows photographers to present their portfolios. It includes features like dynamic page rendering, LightBox for media, contact forms, and like management. The project focuses on accessibility, modularity, and using JavaScript design patterns.',
       fr: 'Fisheye est une application web permettant aux photographes de présenter leurs portfolios. Rendu dynamique, LightBox, formulaires de contact, gestion des likes. Accent sur l’accessibilité et la modularité.',
-      ru: 'Fisheye — это веб-приложение для фотографов для презентации портфолио. Динамические страницы, LightBox, формы обратной связи, лайки. Акцент на доступности и модульности.',
+      ru: 'Fisheye: веб-приложение для презентации портфолио фотографов. Динамические страницы, LightBox, формы обратной связи, лайки. Акцент на доступности и модульности.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'JSON', 'AChecker'],
     link: 'https://ssidikov.github.io/Front-End-Fisheye/',
@@ -393,7 +403,7 @@ export const projects = [
     longDescription: {
       en: 'GameOn is a landing page for a small company specializing in organizing gaming conferences and contests. The project involves dynamic interactions, form validation, responsive design, and uses JavaScript to manipulate HTML and CSS.',
       fr: 'GameOn est une landing page pour une société spécialisée dans l’organisation de conférences et concours gaming. Interactions dynamiques, validation de formulaire, design responsive, manipulation du DOM en JavaScript.',
-      ru: 'GameOn — лендинг для компании, организующей гейминг-конференции и конкурсы. Динамические взаимодействия, валидация форм, адаптивный дизайн, работа с DOM на JavaScript.',
+      ru: 'GameOn: лендинг для компании по организации гейминг-конференций и конкурсов. Динамические взаимодействия, валидация форм, адаптивный дизайн, работа с DOM на JavaScript.',
     },
     technologies: ['HTML', 'CSS', 'JavaScript', 'Flexbox'],
     link: 'https://ssidikov.github.io/GameOn-website-FR/',
@@ -452,7 +462,7 @@ export const projects = [
     longDescription: {
       en: 'In this project, I developed the homepage for a travel agency using HTML and CSS. The focus was on creating a responsive design compatible with various screen sizes and devices, using the Figma designs provided for mobile, tablet, and desktop versions.',
       fr: 'Développement de la page d’accueil d’une agence de voyage en HTML et CSS. Accent sur le responsive et la compatibilité multi-écrans à partir de maquettes Figma.',
-      ru: 'В этом проекте я разработал главную страницу турагентства на HTML и CSS. Основной акцент — адаптивность и поддержка разных устройств по макетам Figma.',
+      ru: 'В этом проекте я разработал главную страницу турагентства на HTML и CSS. Основной упор сделан на адаптивность и поддержку разных устройств по макетам Figma.',
     },
     technologies: ['HTML', 'CSS', 'Figma', 'Flexbox', 'Grid'],
     link: 'https://ssidikov.github.io/Booki/',

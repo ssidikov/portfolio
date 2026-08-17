@@ -1,119 +1,110 @@
-'use client'
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { projects } from '@/data/portfolio-data'
-import { useLanguage } from '@/context/LanguageContext'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
+import ProjectDetailClient from '@/components/ProjectDetailClient'
 
-const getProjectById = (id: string) => {
-  return projects.find((p) => p.id === id) || null
+interface Props {
+  params: Promise<{ id: string }>
 }
 
-export default function ProjectPage({
-  params,
-}: {
-  params: Promise<{ id: string }>
-}) {
-  const actualParams = React.use(params)
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }))
+}
 
-  const { t, language } = useLanguage()
-  const router = useRouter()
-  const { scrollToSection } = useSmoothScroll()
-  const project = getProjectById(actualParams.id)
-
-  const handleBackClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    router.push('/projects')
-  }
-
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    router.push('/')
-    setTimeout(() => {
-      scrollToSection('contact')
-    }, 150)
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params
+  const project = projects.find((p) => p.id === id)
 
   if (!project) {
-    return <div className='text-center py-12'>{t('project.notFound')}</div>
+    return {
+      title: 'Projet non trouvé',
+    }
   }
 
-  // Get localized project data
-  const localizedProject = {
-    ...project,
-    title:
-      typeof project.title === 'object'
-        ? project.title[language] || project.title.en
-        : project.title,
-    longDescription:
-      typeof project.longDescription === 'object'
-        ? project.longDescription[language] || project.longDescription.en
-        : project.longDescription,
+  const title =
+    typeof project.title === 'object'
+      ? project.title.fr || project.title.en
+      : project.title
+
+  const description =
+    typeof project.description === 'object'
+      ? project.description.fr || project.description.en
+      : project.description
+
+  const imageUrl = project.image || '/images/sidikov-web.png'
+
+  return {
+    title: `${title} | Réalisation Web`,
+    description,
+    alternates: {
+      canonical: `/projects/${project.id}`,
+    },
+    openGraph: {
+      title: `${title} | Sardorbek Sidikov`,
+      description,
+      url: `https://sidikov.tech/projects/${project.id}`,
+      type: 'article',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Sardorbek Sidikov`,
+      description,
+      images: [imageUrl],
+    },
+  }
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const { id } = await params
+  const project = projects.find((p) => p.id === id)
+
+  if (!project) {
+    notFound()
+  }
+
+  const title =
+    typeof project.title === 'object'
+      ? project.title.fr || project.title.en
+      : project.title
+
+  const description =
+    typeof project.description === 'object'
+      ? project.description.fr || project.description.en
+      : project.description
+
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: title,
+    headline: title,
+    description: description,
+    image: project.image ? `https://sidikov.tech${project.image}` : undefined,
+    url: `https://sidikov.tech/projects/${project.id}`,
+    author: {
+      '@type': 'Person',
+      name: 'Sardorbek Sidikov',
+      url: 'https://sidikov.tech',
+    },
+    keywords: project.technologies.join(', '),
   }
 
   return (
-    <div className='min-h-screen text-foreground transition-colors duration-300 bg-gradient-light dark:bg-gradient-dark'>
-      <Header />
-      <main className='container mx-auto px-4 pt-24 md:pt-32 min-h-screen'>
-        {' '}
-        <div className='float-right'>
-          <button
-            onClick={handleBackClick}
-            className='px-4 py-2 text-sm border rounded-md bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
-            ← {t('portfolio.viewAll')}
-          </button>
-        </div>
-        <article className='grid md:grid-cols-2 gap-12 py-10 md:py-20 w-full'>
-          <div className='relative h-[400px] rounded-xl overflow-hidden'>
-            <Image
-              src={localizedProject.image || '/placeholder.svg'}
-              alt={localizedProject.title}
-              fill
-              className='object-cover object-top'
-            />
-          </div>
-          <div className='space-y-6 flex flex-col justify-between'>
-            <h1 className='text-4xl font-bold gradient-text'>{localizedProject.title}</h1>
-            <p className='text-lg text-gray-600 dark:text-gray-400'>
-              {localizedProject.longDescription}
-            </p>
-            <div>
-              <h2 className='text-2xl font-semibold mb-2'>Technologies</h2>
-              <div className='flex flex-wrap gap-2'>
-                {localizedProject.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className='bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300 px-3 py-1 rounded-full text-sm'>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>{' '}
-            <div className='flex flex-row gap-4 justify-between md:justify-normal items-center'>
-              <Link href='/#contact' onClick={handleContactClick} className='w-1/2 md:w-48'>
-                <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg flex items-center justify-center mx-auto'>
-                  {t('hero.contact')}
-                </button>
-              </Link>
-
-              <a
-                href={localizedProject.link}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='w-1/2 md:w-48'>
-                <button className='w-full min-w-[120px] max-w-[220px] px-6 py-3 text-base font-medium border border-indigo-500 text-indigo-600 dark:text-indigo-300 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900 transition-colors flex items-center justify-center mx-auto'>
-                  {t('portfolio.viewProject')}
-                </button>
-              </a>
-            </div>
-          </div>
-        </article>{' '}
-      </main>
-      <Footer />
-    </div>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
+      <ProjectDetailClient project={project} />
+    </>
   )
 }

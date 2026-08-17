@@ -23,6 +23,7 @@ export default function Portfolio({ title, subtitle, showAllProjects = false }: 
 
   useEffect(() => {
     if (window.innerWidth < 768) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisibleProjects(3)
     }
   }, [])

@@ -4,13 +4,12 @@ import { projects } from '@/data/portfolio-data'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sidikov.tech'
 
-  // Статические страницы
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/projects`,
@@ -20,12 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Динамические страницы проектов
   const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.7,
   }))
 
   return [...staticRoutes, ...projectRoutes]
